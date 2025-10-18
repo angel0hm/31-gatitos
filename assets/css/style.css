@@ -1,0 +1,16 @@
+.navbar-blur {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 20;
+  backdrop-filter: blur(12px);
+}
+
+.navbar-blur::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 24px;
+  background: linear-gradient(to bottom, transparent, rgba(248, 250, 252, 0));
+}
