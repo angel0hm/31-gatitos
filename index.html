@@ -5,28 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="shortcut icon" href="assets/assets/Logo-bar.png" type="image/x-icon">
     <title>31 Gatitos</title>
 </head>
-<body class="bg-slate-100">
+<body class="bg-black">
 
+    <!-- Inicio del navbar -->
     <nav class="w-full fixed top-0 z-20">
     <!-- Capa de fondo para blur degradado -->
     <div class="absolute inset-0 backdrop-blur [mask-image:linear-gradient(to_bottom,white_60%,transparent_100%)]"></div>
     <!-- Capa de fondo para color degradado -->
-    <div class="absolute inset-0 bg-zinc-700/75 dark:bg-zinc-800/75 [mask-image:linear-gradient(to_bottom,white_0%,transparent_100%)]"></div>
+    <div class="absolute inset-0 bg-zinc-900/75 dark:bg-zinc-950/75 [mask-image:linear-gradient(to_bottom,white_0%,transparent_100%)]"></div>
     
 
     <!-- Contenido del navbar -->
     <div class="relative max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+        
         <a href="index.html" class="flex items-center space-x-3 rtl:space-x-reverse md:hover:scale-[1.2] active:scale-95 transition-transform duration-150 ease-in-out">
         <img src="assets/assets/Logo-bar.png" class="h-20" alt="31 Gatitos Logo">
         <span class="self-center text-4xl font-semibold whitespace-nowrap dark:text-white"></span>
         </a>
 
         <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-        <a href="apadrina.html" class="text-white font-medium rounded-lg text-sm px-4 py-2 text-center bg-violet-500/75 hover:bg-violet-600/50 md:hover:scale-[1.2] active:scale-95 transition-transform duration-150 ease-in-out">Apadrina</a>
-        <button data-collapse-toggle="navbar-sticky" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700" aria-controls="navbar-sticky" aria-expanded="false">
+        <a href="apadrina.html" class="text-white font-medium rounded-lg text-sm px-4 py-2 text-center bg-violet-500/75 hover:bg-violet-600/50 
+                                        md:hover:scale-[1.2] active:scale-95 transition-transform duration-150 ease-in-out">Apadrina</a>
+        <button data-collapse-toggle="navbar-sticky" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 
+                                                                          rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 
+                                                                          dark:text-gray-400 dark:hover:bg-gray-700" aria-controls="navbar-sticky" aria-expanded="false">
             <span class="sr-only">Abrir menu principal</span>
             <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
@@ -45,87 +51,271 @@
     </nav>
     <!-- Fin del navbar -->
 
-    
     <main>
+        <!-- Sección de portada -->
+        <section class="sticky top-0 h-screen z-0">
+            <div class="absolute inset-0 bg-black">
+                <img src="assets/assets/main/gato_portada_vertical.png" alt="..." 
+                    class="w-full h-full object-cover object-center md:hidden">
+                    
+                <img src="assets/assets/main/gato_portada_1.png" alt="..." 
+                    class="slideshow-image hidden md:block w-full h-screen object-cover object-right">
 
-        <!-- Primera sección -->
-        <section class="bg-white dark:bg-zinc-900">
-            <div class="container mx-auto px-4 py-16 md:py-24 grid grid-cols-1 md:grid-cols-2 items-center gap-12 text-center md:text-left">
-                <div class="md:order-1">
-                    <h1 class="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white">
-                        La catfetería de los 31 gatitos
-                    </h1>
-                    <p class="mt-4 text-lg text-gray-600 dark:text-gray-300">
-                        Más que una cafetería, un refugio para gatos en busca de un hogar lleno de amor.
-                    </p>
-                    <div class="mt-8 flex justify-center md:justify-start gap-4">
-                        <a href="apadrina.html" class="bg-violet-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-violet-600 transition-transform duration-150 ease-in-out hover:scale-105 active:scale-95">
-                            Donar Ahora
-                        </a>
-                        <a href="#" class="bg-gray-200 text-gray-800 font-bold py-3 px-6 rounded-lg hover:bg-gray-300 transition-transform duration-150 ease-in-out hover:scale-105 active:scale-95">
-                            &#x1F782; Ver video
-                        </a>
-                    </div>
-                </div>
-                <div class="md:order-2">
-                    <img src="assets/assets/main/franky_1.png" class="w-full max-w-md mx-auto rounded-lg shadow-lg" alt="Franky, un gatito en 31 Gatitos">
+                <img src="assets/assets/main/gato_portada_2.png" alt="Gatitos 2" 
+                    class="slideshow-image hidden md:block w-full h-screen object-cover object-right">
+
+                <img src="assets/assets/main/cafe_portada_1.png" alt="Gatitos 3" 
+                    class="slideshow-image hidden md:block w-full h-screen object-cover object-right">
+            </div>
+            
+            <!-- Sombra del fondo-->>
+            <div class="absolute inset-0 h-screen bg-black/50"></div>
+            
+            <!-- Contenido de la portada -->
+            <div class="relative container mx-auto px-4 pt-40 h-screen md:pt-48 md:pb-32">
+
+                <!--Texto para teléfono-->
+                <h1 class="text-4xl md:text-6xl mt-0 md:mt-20 font-bold text-white text-center md:hidden">
+                    La catfetería de <br>31 gatitos
+                </h1>
+                <!--Texto para escritorio-->
+                <h1 class="hidden md:block text-4xl md:text-6xl mt-0 md:mt-20 font-bold text-white">
+                    La catfetería de <br>31 gatitos
+                </h1>
+
+                <!--Texto para teléfono-->
+                <p class="mt-4 text-lg text-gray-200 max-w-2xl text-center md:hidden">
+                    Más que una cafetería, un refugio para gatos en busca de un hogar lleno de amor.
+                </p>
+                <!--Texto para escritorio-->
+                <p class="hidden md:block mt-4 text-lg text-gray-200 max-w-2xl text-justify">
+                    Más que una cafetería, un refugio para gatos en busca <br> de un hogar lleno de amor.
+                </p>
+                
+                <div class="mt-8 flex gap-4 mx-auto md:place-content-start place-content-center">
+                    <a href="apadrina.html" 
+                       class="bg-violet-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-violet-600 transition-transform 
+                              duration-150 ease-in-out hover:scale-105 active:scale-95">
+                        Donar Ahora
+                    </a>
+                    
+                    <a href="#" class="bg-transparent border-2 border-white text-white font-bold py-3 px-6 rounded-lg hover:bg-white 
+                                       hover:text-gray-900 transition-all duration-150 ease-in-out hover:scale-105 active:scale-95">
+                        &#9655; Ver video
+                    </a>
                 </div>
             </div>
         </section>
 
-        <!-- Segunda sección -->
-        <section class="bg-slate-100 dark:bg-zinc-800">
+        <section class="bg-slate-100 relative z-10 -mt-20 rounded-t-3xl">
+            
             <div class="container mx-auto px-4 py-16">
                 <div class="flex justify-between items-center mb-8">
-                    <h2 class="text-3xl font-bold text-gray-900 dark:text-white">Gatos Disponibles</h2>
-                    <a href="adopta.html" class="text-violet-500 font-semibold hover:text-violet-600 transition">
+                    <h2 class="text-3xl font-bold text-gray-900">Michis Disponibles</h2>
+                    <a href="adopta.html" class="text-violet-500 font-semibold hover:text-violet-600 transition-transform 
+                                            duration-150 ease-in-out hover:scale-105 active:scale-95">
                         Ver todos →
                     </a>
                 </div>
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                    <div class="text-center group">
-                        <img src="assets/assets/main/gato_chilaquil.png" alt="Chilaquil" class="rounded-lg shadow-md mb-2 transition-transform duration-150 ease-in-out group-hover:scale-105">
-                        <p class="font-semibold text-gray-800 dark:text-white">Chilaquil</p>
+                    <!-- Gato 1-->
+                    <div class="relative group cursor-pointer text-center">
+
+                        <div class="relative overflow-hidden rounded-lg card-container">
+
+                            <img src="assets/assets/main/gato_chilaquil.png" alt="Chilaquil"
+                                class="rounded-lg shadow-md w-full object-cover aspect-square
+                                        transition-all duration-300 ease-in-out
+                                        group-hover:brightness-75 group-hover:scale-105" />
+                                <div class="card-overlay-text">
+                                <p class="text-xl font-bold">Chilaquil</p>
+                                <p class="text-lg">Hembra</p>
+                                <p class="text-lg">2 Años</p>
+                            </div>
+
+                        </div> <p class="font-semibold text-gray-800 mt-2">Chilaquil</p>
+
                     </div>
-                    <div class="text-center group">
-                        <img src="assets/assets/main/gato_hachi.png" alt="Hachi" class="rounded-lg shadow-md mb-2 transition-transform duration-150 ease-in-out group-hover:scale-105">
-                        <p class="font-semibold text-gray-800 dark:text-white">Hachi</p>
+                    
+                    <!-- Gato 2-->
+                    <div class="relative group cursor-pointer text-center">
+
+                        <div class="relative overflow-hidden rounded-lg card-container">
+
+                            <img src="assets/assets/main/gato_hachi.png" alt="Chilaquil"
+                                class="rounded-lg shadow-md w-full object-cover aspect-square
+                                        transition-all duration-300 ease-in-out
+                                        group-hover:brightness-75 group-hover:scale-105" />
+                                <div class="card-overlay-text">
+                                <p class="text-xl font-bold">Hachi</p>
+                                <p class="text-lg">Hembra</p>
+                                <p class="text-lg">2 Años</p>
+                            </div>
+
+                        </div> <p class="font-semibold text-gray-800 mt-2">Hachi</p>
                     </div>
-                    <div class="text-center group">
-                        <img src="assets/assets/main/gato_aliceb.png" alt="Alice Baby" class="rounded-lg shadow-md mb-2 transition-transform duration-150 ease-in-out group-hover:scale-105">
-                        <p class="font-semibold text-gray-800 dark:text-white">Alice Baby</p>
+                    <!-- Gato 3-->
+                    <div class="relative group cursor-pointer text-center">
+
+                        <div class="relative overflow-hidden rounded-lg card-container">
+
+                            <img src="assets/assets/main/gato_aliceb.png" alt="Chilaquil"
+                                class="rounded-lg shadow-md w-full object-cover aspect-square
+                                        transition-all duration-300 ease-in-out
+                                        group-hover:brightness-75 group-hover:scale-105" />
+                                <div class="card-overlay-text">
+                                <p class="text-xl font-bold">Alice Baby</p>
+                                <p class="text-lg">Hembra</p>
+                                <p class="text-lg">2 Años</p>
+                            </div>
+
+                        </div> <p class="font-semibold text-gray-800 mt-2">Alice Baby</p>
                     </div>
-                    <div class="text-center group">
-                        <img src="assets/assets/main/gato_menganita.png" alt="Menganita" class="rounded-lg shadow-md mb-2 transition-transform duration-150 ease-in-out group-hover:scale-105">
-                        <p class="font-semibold text-gray-800 dark:text-white">Menganita</p>
+                    <!-- Gato 4-->
+                    <div class="relative group cursor-pointer text-center">
+
+                        <div class="relative overflow-hidden rounded-lg card-container">
+
+                            <img src="assets/assets/main/gato_menganita.png" alt="Chilaquil"
+                                class="rounded-lg shadow-md w-full object-cover aspect-square
+                                        transition-all duration-300 ease-in-out
+                                        group-hover:brightness-75 group-hover:scale-105" />
+                                <div class="card-overlay-text">
+                                <p class="text-xl font-bold">Menganita</p>
+                                <p class="text-lg">Hembra</p>
+                                <p class="text-lg">2 Años</p>
+                            </div>
+
+                        </div> <p class="font-semibold text-gray-800 mt-2">Menganita</p>
+
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Tercera sección -->
-        <section class="bg-white dark:bg-zinc-900">
+        <section class="bg-slate-200 relative">
             <div class="container mx-auto px-4 py-16">
                 <div class="grid md:grid-cols-3 gap-8">
                     <a href="apadrina.html" class="block text-center p-6 rounded-lg hover:shadow-2xl transition-shadow duration-200 ease-in-out">
-                        <img src="assets/assets/main/gato_apadrina.png" alt="Gato apadrina" class="mx-auto h-32 w-32 object-cover rounded-full mb-4">
-                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Apadrina</h3>
-                        <p class="text-gray-600 dark:text-gray-300">Ayuda a un michi en su vida con nosotros.</p>
+                        <img src="assets/assets/main/gato_apadrina_1_B.png" alt="Gato apadrina" class="mx-auto h-72 w-72 object-cover mb-4">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Apadrina</h3>
+                        <p class="text-gray-600">Ayuda a un michi en su vida con nosotros.</p>
                     </a>
                     <a href="adopta.html" class="block text-center p-6 rounded-lg hover:shadow-2xl transition-shadow duration-200 ease-in-out">
-                        <img src="assets/assets/main/gato_adopta.png" alt="Gato Adopta" class="mx-auto h-32 w-32 object-cover rounded-full mb-4">
-                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Adopta</h3>
-                        <p class="text-gray-600 dark:text-gray-300">Dale la oportunidad a un michi de ser amado.</p>
+                        <img src="assets/assets/main/gato_adopta_1_b.png" alt="Gato Adopta" class="mx-auto h-72 w-72 object-cover rounded-full mb-4">
+                        <h3 class="text-xl font-bold text-gray-900  mb-2">Adopta</h3>
+                        <p class="text-gray-600 ">Dale la oportunidad a un michi de ser amado.</p>
                     </a>
                     <a href="visitanos.html" class="block text-center p-6 rounded-lg hover:shadow-2xl transition-shadow duration-200 ease-in-out">
-                        <img src="assets/assets/main/gato_cafeteria.png" alt="Gato cafetería" class="mx-auto h-32 w-32 object-cover rounded-full mb-4">
-                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Cafetería</h3>
-                        <p class="text-gray-600 dark:text-gray-300">Con tus visitas nos ayudas a que ayudemos a más michis.</p>
+                        <img src="assets/assets/main/gato_cafeteria_1_b.png" alt="Gato cafetería" class="mx-auto h-72 w-72 object-cover rounded-full mb-4">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Cafetería</h3>
+                        <p class="text-gray-600 ">Con tus visitas nos ayudas a que ayudemos a más michis.</p>
                     </a>
                 </div>
             </div>
         </section>
+
+        <!-- Tercera Sección -->
+        <section class="bg-slate-200 relative z-10"> 
+            <div class="container mx-auto px-4 py-16">
+            
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 place-items-center">
+
+                
+                    <div class="relative p-8 min-h-[300px] w-full my-4 md:my-auto rounded-3xl overflow-hidden hover:shadow-2xl transition-shadow duration-200 ease-in-out flex flex-col
+                                hover:scale-[1.02] transition-transform duration-150 ease-in-out menu-card">
+
+                    
+                        <div class="absolute inset-0 bg-[url(assets/assets/main/cafe_portada_2.png)] bg-cover bg-center"></div>
+                        <div class="absolute inset-0 bg-black/60 rounded-3xl"></div>
+
+                    
+                        <div class="relative z-10 flex flex-col flex-grow">
+                            <h2 class="text-white text-2xl font-bold">Ubicación</h2> 
+                            <div class="mt-4 text-white text-base flex flex-col flex-grow"> 
+                                <h3 class="text-xl mt-6 md:mt-12 text-white">Visita nuestra cafetería y conoce a nuestros adorables michis en persona.</h3> 
+                                <p class="mt-2 text-gray-200">Dirección: C. 17 58-Local 2, San Pedro de los Pinos, Benito Juárez, 03800 Ciudad de México, CDMX</p>
+                                <div class="mt-auto flex justify-end pt-4">
+                                    <a href="https://maps.app.goo.gl/Xd91XNyCLdyYAarD7"
+                                    target="_blank" rel="noopener noreferrer"
+                                    class="text-violet-200 hover:text-white font-semibold transition-transform duration-150 ease-in-out hover:scale-105 active:scale-95">
+                                        Mapa →
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                
+                
+                    <div class="relative p-8 min-h-[300px] w-full my-4 md:my-auto rounded-3xl overflow-hidden hover:shadow-2xl transition-shadow duration-200 ease-in-out flex flex-col
+                    hover:scale-[1.02] menu-card">
+
+                        <div class="absolute inset-0 bg-[url(assets/assets/main/cafe_portada_3.png)] bg-cover bg-center"></div>
+                        <div class="absolute inset-0 bg-black/60 rounded-3xl"></div>
+
+                        <div class="relative z-10 flex flex-col flex-grow">
+                            <h2 class="text-white text-2xl font-bold">Menú</h2>
+                            <div class="mt-4 text-gray-200 text-base flex flex-col flex-grow">
+                                <h3 class="text-xl mt-6 md:mt-12">Ven y prueba nuestros deliciosos <br>postres y bebidas acompañado <br>de un michi.</h3>
+
+                                <div class="mt-auto flex justify-end pt-4">
+                                    <a href="menu.html"
+                                    class="text-violet-200 hover:text-white font-semibold transition-transform 
+                                            duration-150 ease-in-out hover:scale-105 active:scale-95">
+                                    Ver Menú →
+                                    </a>
+                                </div>
+                                </div>
+                        </div>
+                    </div>
+                </div> 
+            </div> 
+        </section>
     </main>
+    
+    <!-- Inicio del footer -->
+    <footer class="bg-indigo-950 text-gray-300 py-8">
+        <div class="container mx-auto px-4r">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+                
+                <div>
+                    <h4 class="font-bold mb-4">Horario</h4>
+                    <p class="mt-4 mb-4 text-sm">
+                        Martes a Viernes 14:00 - 21:00<br>
+                        Sábado y Domingo: 12:00 - 21:00
+                    </p>
+                    <p class="text-sm">C. 17 58-Local 2, San Pedro de los Pinos, Benito Juárez, 03800 Ciudad de México, CDMX</p>
+                </div>
+
+                <div class="md:place-items-center">
+                    <div class="md:text-left">
+                        <h4 class="font-bold mb-4">Enlaces</h4>
+                        <ul>
+                            <li><a href="index.html">Inicio</a></li>
+                            <li><a href="adopta.html" class="hover:text-white">Adopta</a></li>
+                            <li><a href="apadrina.html" class="hover:text-white">Apadrina</a></li>
+                            <li><a href="visitanos.html" class="hover:text-white">Visítanos</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="md:place-items-end">
+                    <h4 class="font-bold mb-4">Síguenos</h4>
+                    <div class="flex justify-center md:justify-start space-x-4">
+                        <a href="https://www.facebook.com/31gatitosMx" class="hover:text-white">FB</a>
+                        <a href="https://www.instagram.com/31gatitos/" class="hover:text-white">IG</a>
+                        <a href="https://www.tiktok.com/@31gatitos" class="hover:text-white">TK</a> 
+                    </div>
+                </div>
+
+            </div>
+            <hr class="border-gray-700 my-6">
+            <p class="text-center text-sm">
+                &copy; 2025 31 Gatitos. Todos los derechos reservados.
+            </p>
+        </div>
+    </footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 </body>
