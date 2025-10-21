@@ -5,28 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="shortcut icon" href="assets/assets/Logo-bar.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>31 Gatitos</title>
 </head>
-<body class="bg-slate-100">
+<body class="bg-black">
 
+    <!-- Inicio del navbar -->
     <nav class="w-full fixed top-0 z-20">
     <!-- Capa de fondo para blur degradado -->
     <div class="absolute inset-0 backdrop-blur [mask-image:linear-gradient(to_bottom,white_60%,transparent_100%)]"></div>
     <!-- Capa de fondo para color degradado -->
-    <div class="absolute inset-0 bg-zinc-700/75 dark:bg-zinc-800/75 [mask-image:linear-gradient(to_bottom,white_0%,transparent_100%)]"></div>
+    <div class="absolute inset-0 bg-zinc-900/75 dark:bg-zinc-950/75 [mask-image:linear-gradient(to_bottom,white_0%,transparent_100%)]"></div>
     
 
     <!-- Contenido del navbar -->
     <div class="relative max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+        
         <a href="index.html" class="flex items-center space-x-3 rtl:space-x-reverse md:hover:scale-[1.2] active:scale-95 transition-transform duration-150 ease-in-out">
         <img src="assets/assets/Logo-bar.png" class="h-20" alt="31 Gatitos Logo">
         <span class="self-center text-4xl font-semibold whitespace-nowrap dark:text-white"></span>
         </a>
 
         <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-        <a href="apadrina.html" class="text-white font-medium rounded-lg text-sm px-4 py-2 text-center bg-violet-500/75 hover:bg-violet-600/50 md:hover:scale-[1.2] active:scale-95 transition-transform duration-150 ease-in-out">Apadrina</a>
-        <button data-collapse-toggle="navbar-sticky" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700" aria-controls="navbar-sticky" aria-expanded="false">
+        <a href="apadrina.html" class="text-white font-medium rounded-lg text-sm px-4 py-2 text-center bg-violet-500/75 hover:bg-violet-600/50 
+                                        md:hover:scale-[1.2] active:scale-95 transition-transform duration-150 ease-in-out">Apadrina</a>
+        <button data-collapse-toggle="navbar-sticky" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 
+                                                                          rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 
+                                                                          dark:text-gray-400 dark:hover:bg-gray-700" aria-controls="navbar-sticky" aria-expanded="false">
             <span class="sr-only">Abrir menu principal</span>
             <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
@@ -36,17 +44,594 @@
 
         <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
         <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0">
-            <li><a href="adopta.html" class="text-xl block py-2 px-3 text-gray-900 md:hover:text-violet-700 md:hover:scale-110 dark:text-white active:scale-95 transition-transform duration-150 ease-in-out">Adopta</a></li>
-            <li><a href="apadrina.html" class="text-xl block py-2 px-3 text-gray-900 md:hover:text-violet-700 md:hover:scale-110 dark:text-white active:scale-95 transition-transform duration-150 ease-in-out">Donar</a></li>
-            <li><a href="visitanos.html" class="text-xl block py-2 px-3 text-gray-900 md:hover:text-violet-700 md:hover:scale-110 dark:text-white active:scale-95 transition-transform duration-150 ease-in-out">Visítanos</a></li>
+            <li><a href="adopta.html" class="text-xl block py-2 px-3 text-violet-700 md:hover:text-violet-700 md:hover:scale-110 active:scale-95 transition-transform duration-150 ease-in-out">Adopta</a></li>
+            <li><a href="apadrina.html" class="text-xl block py-2 px-3 text-white md:hover:text-violet-700 md:hover:scale-110 active:scale-95 transition-transform duration-150 ease-in-out">Donar</a></li>
+            <li><a href="visitanos.html" class="text-xl block py-2 px-3 text-white md:hover:text-violet-700 md:hover:scale-110 active:scale-95 transition-transform duration-150 ease-in-out">Visítanos</a></li>
         </ul>
         </div>
     </div>
     </nav>
     <!-- Fin del navbar -->
 
+    <main>
+        <!-- Sección de portada -->
+        <section class="sticky top-0 h-screen z-0">
+            <div class="absolute inset-0 bg-black">
+                <img src="assets/assets/main/gato_portada_vertical.png" alt="..." 
+                    class="w-full h-full object-cover object-center md:hidden">
+                    
+                <img src="assets/assets/main/gato_portada_1.png" alt="..." 
+                    class="slideshow-image hidden md:block w-full h-screen object-cover object-right">
 
+                <img src="assets/assets/main/gato_portada_2.png" alt="Gatitos 2" 
+                    class="slideshow-image hidden md:block w-full h-screen object-cover object-right">
+
+                <img src="assets/assets/main/cafe_portada_1.png" alt="Gatitos 3" 
+                    class="slideshow-image hidden md:block w-full h-screen object-cover object-right">
+            </div>
+            
+            <!-- Sombra del fondo-->>
+            <div class="absolute inset-0 h-screen bg-black/50"></div>
+            
+            <!-- Contenido de la portada -->
+            <div class="relative container mx-auto px-4 pt-40 h-screen md:pt-48 md:pb-32">
+
+                <!--Texto para teléfono-->
+                <h1 class="text-4xl md:text-6xl mt-0 md:mt-20 font-bold text-white text-center md:hidden">
+                    La catfetería de <br>31 gatitos
+                </h1>
+                <!--Texto para escritorio-->
+                <h1 class="hidden md:block text-4xl md:text-6xl mt-0 md:mt-20 font-bold text-white">
+                    Adopta a un michi. <br>Cambia una vida.
+                </h1>
+
+                <!--Texto para teléfono-->
+                <p class="mt-4 text-lg text-gray-200 max-w-2xl text-center md:hidden">
+                    Más que una cafetería, un refugio para gatos en busca de un hogar lleno de amor.
+                </p>
+                <!--Texto para escritorio-->
+                <p class="hidden md:block mt-4 text-lg text-gray-200 max-w-2xl text-justify">
+                    Adoptar un gato no solo cambia su vida, sino también la tuya. <br>En 31 Gatitos, cada adopción es una historia de amor que comienza.
+                </p>
+                
+                <div class="mt-8 flex gap-4 mx-auto md:place-content-start place-content-center">
+                    <a href="apadrina.html" 
+                       class="bg-violet-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-violet-600 transition-transform 
+                              duration-150 ease-in-out hover:scale-105 active:scale-95">
+                        Ver requisitos
+                    </a>
+                    
+                    
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de gatos disponibles -->
+        <section class="bg-slate-100 relative z-10 -mt-20 rounded-t-3xl">
+            
+            <div class="container mx-auto px-4 py-16">
+                <div class="flex justify-between items-center mb-8" data-aos="fade-up">
+                    <h2 class="text-3xl font-bold text-gray-900">Michis Disponibles</h2>
+                    <div>
+                        <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown-sort"
+                                class="text-white bg-violet-500 hover:bg-violet-600 focus:ring-4 focus:outline-none focus:ring-violet-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-violet-600 dark:hover:bg-violet-700 dark:focus:ring-violet-800"
+                                type="button">
+                            Ordenar por
+                            <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                            </svg>
+                        </button>
+
+                        <div id="dropdown-sort" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+                            <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+                                <li>
+                                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" data-sort="recientes">Más Recientes</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" data-sort="antiguos">Más Antiguos</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" data-sort="edadAsc">Edad (Menor a Mayor)</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" data-sort="edadDesc">Edad (Mayor a Menor)</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" data-sort="sexo">Sexo</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-5 gap-6" id="gatos-grid">
+                </div>
+                <div class="mt-12 relative z-10 flex justify-center items-center space-x-2" id="pagination-controls">
+                </div>
+            </div>
+        </section>
+        <section id="perfil-gato-detalle" class="bg-slate-100 relative z-10 -mt-20 container mx-auto px-4 py-12 hidden"></section>
+
+        <!-- Sección de Requisitos -->
+        <section id="requisitos" class="bg-slate-200 relative z-10 py-12 md:py-20 pb-16 md:pb-20"> 
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold text-gray-900 mb-10 text-center" 
+                    data-aos="fade-up" data-aos-offset="250" data-aos-delay="500">Requisitos de Adopción</h2>
+
+                <div id="accordion-requirements" class="mx-auto">
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 mb-4">
+
+                        <div class="space-y-4">
+                            <!-- Bloque 1 -->
+                            <h3 id="accordion-req-heading-1" data-aos="fade-up" data-aos-offset="250" data-aos-delay="500">
+                                <button type="button" class="flex items-center justify-between w-full p-5 
+                                        font-medium text-left rtl:text-right text-gray-600 
+                                        border border-b-indigo-900 rounded-t-3xl
+                                        hover:bg-slate-300 active:bg-slate-400 
+                                        gap-3 transition-all duration-300 ease-in-out"
+                                        data-accordion-target="#accordion-req-body-1"
+                                        aria-expanded="false" aria-controls="accordion-req-body-1">
+                                        
+                                    <span><i class="fa-solid fa-shield-halved mr-2"></i>Compromiso, seriedad y paciencia</span>
+                                    <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0 transition-transform duration-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
+                                    </svg>
+                                </button>
+                            </h3>
+                            <div id="accordion-req-body-1" class="hidden overflow-hidden" aria-labelledby="accordion-req-heading-1">
+                                <div class="p-5 ">
+                                    <p class="text-gray-600 text-left">No damos gatitos para regalo, ni urgentemente, ni menores a 3 meses. Nosotros invertimos tiempo en su rescate, atención veterinaria, tratamientos, cuidados diarios, lo mínimo que pedimos es tu comprensión en el proceso.</p>
+                                </div>
+                            </div>
+
+                            <!-- Bloque 2 -->
+                            <h3 id="accordion-req-heading-2" data-aos="fade-up" data-aos-offset="250" data-aos-delay="500">
+                                <button type="button" class="flex items-center justify-between w-full p-5 
+                                        font-medium text-left rtl:text-right text-gray-600 
+                                        border border-b-indigo-900 rounded-t-3xl
+                                        hover:bg-slate-300 active:bg-slate-400 
+                                        gap-3 transition-all duration-300 ease-in-out"
+                                        data-accordion-target="#accordion-req-body-2"
+                                        aria-expanded="false" aria-controls="accordion-req-body-2">
+                                    <span><i class="fa-solid fa-file-signature mr-2"></i>Solicitud de adopción (+26 y -60 años)</span>
+                                    <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0 transition-transform duration-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
+                                    </svg>
+                                </button>
+                            </h3>
+                            <div id="accordion-req-body-2" class="hidden overflow-hidden" aria-labelledby="accordion-req-heading-2">
+                                <div class="p-5 border border-t-0 border-gray-200 rounded-b-lg">
+                                    <p class="text-gray-600 text-left">Tener independencia económica y estabilidad. La solicitud debe llenarla el responsable y toda la familia debe estar de acuerdo. Puedes escribir un correo a: adopcion31gatitos@gmail.com solicitando el formato.</p>
+                                </div>
+                            </div>
+
+                            <!-- Bloque 3 -->
+                            <h3 id="accordion-req-heading-3" data-aos="fade-up" data-aos-offset="250" data-aos-delay="500">
+                                <button type="button" class="flex items-center justify-between w-full p-5 
+                                        font-medium text-left rtl:text-right text-gray-600 
+                                        border border-b-indigo-900 rounded-t-3xl
+                                        hover:bg-slate-300 active:bg-slate-400 
+                                        gap-3 transition-all duration-300 ease-in-out"
+                                        data-accordion-target="#accordion-req-body-3"
+                                        aria-expanded="false" aria-controls="accordion-req-body-3">
+                                    <span><i class="fa-solid fa-earth-americas mr-2"></i>Ser mexicano o extranjero con visa de residencia permanente y vivir en CDMX</span>
+                                    <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0 transition-transform duration-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
+                                    </svg>
+                                </button>
+                            </h3>
+                            <div id="accordion-req-body-3" class="hidden overflow-hidden" aria-labelledby="accordion-req-heading-3">
+                                <div class="p-5 border border-t-0 border-gray-200 rounded-b-lg">
+                                    <p class="text-gray-600 text-left">El adoptado se entregará en tu domicilio en periodo de prueba hasta asegurar que se adapten, una vez concretado con éxito se confirma la adopción, en caso contrario vuelve con nosotros.</p>
+                                </div>
+                            </div>
+
+                            <!-- Bloque 4 -->
+                            <h3 id="accordion-req-heading-4" data-aos="fade-up" data-aos-offset="250" data-aos-delay="500">
+                                <button type="button" class="flex items-center justify-between w-full p-5 
+                                        font-medium text-left rtl:text-right text-gray-600 
+                                        border border-b-indigo-900 rounded-t-3xl
+                                        hover:bg-slate-300 active:bg-slate-400 
+                                        gap-3 transition-all duration-300 ease-in-out"
+                                        data-accordion-target="#accordion-req-body-4"
+                                        aria-expanded="false" aria-controls="accordion-req-body-4">
+                                    <span><i class="fa-solid fa-clipboard-question mr-2"></i>Entrevista</span>
+                                    <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0 transition-transform duration-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
+                                    </svg>
+                                </button>
+                            </h3>
+                            <div id="accordion-req-body-4" class="hidden overflow-hidden" aria-labelledby="accordion-req-heading-4">
+                                <div class="p-5 border border-t-0 border-gray-200 rounded-b-lg">
+                                    <p class="text-gray-600 text-left">Una vez aprobada tu solicitud te contactaremos para invitarte a conocer al adoptable (previa cita), Col. San Pedro de los Pinos.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="space-y-4">
+                            <!-- Bloque 5 -->
+                            <h3 id="accordion-req-heading-5" data-aos="fade-up" data-aos-offset="250" data-aos-delay="500">
+                                <button type="button" class="flex items-center justify-between w-full p-5 
+                                        font-medium text-left rtl:text-right text-gray-600 
+                                        border border-b-indigo-900 rounded-t-3xl
+                                        hover:bg-slate-300 active:bg-slate-400 
+                                        gap-3 transition-all duration-300 ease-in-out"
+                                        data-accordion-target="#accordion-req-body-5"
+                                        aria-expanded="false" aria-controls="accordion-req-body-5">
+                                    <span><i class="fa-solid fa-paw mr-2"></i>Si tienes gatos</span>
+                                    <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0 transition-transform duration-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
+                                    </svg>
+                                </button>
+                            </h3>
+                            <div id="accordion-req-body-5" class="hidden overflow-hidden" aria-labelledby="accordion-req-heading-5">
+                                <div class="p-5 border border-t-0 border-gray-200 rounded-b-lg">
+                                    <p class="text-gray-600 text-left">Mostrar carnet de vacunación al día (vacuna triple felina y rabia y desparasitación). Deben tener su prueba de SIDA y Leucemia negativa y estar esterilizados.</p>
+                                </div>
+                            </div>
+
+                            <!-- Bloque 6 -->
+                            <h3 id="accordion-req-heading-6" data-aos="fade-up" data-aos-offset="250" data-aos-delay="500">
+                                <button type="button" class="flex items-center justify-between w-full p-5 
+                                        font-medium text-left rtl:text-right text-gray-600 
+                                        border border-b-indigo-900 rounded-t-3xl
+                                        hover:bg-slate-300 active:bg-slate-400 
+                                        gap-3 transition-all duration-300 ease-in-out"
+                                        data-accordion-target="#accordion-req-body-6"
+                                        aria-expanded="false" aria-controls="accordion-req-body-6">
+                                    <span><i class="fa-solid fa-coins mr-2"></i>Donativo</span>
+                                    <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0 transition-transform duration-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
+                                    </svg>
+                                </button>
+                            </h3>
+                            <div id="accordion-req-body-6" class="hidden overflow-hidden" aria-labelledby="accordion-req-heading-6">
+                                <div class="p-5 border border-t-0 border-gray-200 rounded-b-lg">
+                                    <p class="text-gray-600 text-left">Estar de acuerdo en proporcionar un donativo en efectivo de $850 para iniciar el protocolo de salud del siguiente gatito rescatado.</p>
+                                </div>
+                            </div>
+
+                            <!-- Bloque 7 -->
+                            <h3 id="accordion-req-heading-7" data-aos="fade-up" data-aos-offset="250" data-aos-delay="500">
+                                <button type="button" class="flex items-center justify-between w-full p-5 
+                                        font-medium text-left rtl:text-right text-gray-600 
+                                        border border-b-indigo-900 rounded-t-3xl
+                                        hover:bg-slate-300 active:bg-slate-400 
+                                        gap-3 transition-all duration-300 ease-in-out"
+                                        data-accordion-target="#accordion-req-body-7"
+                                        aria-expanded="false" aria-controls="accordion-req-body-7">
+                                    <span><i class="fa-solid fa-house-circle-check mr-2"></i>Recibir al adoptado en tu domicilio y seguimiento.</span>
+                                    <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0 transition-transform duration-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
+                                    </svg>
+                                </button>
+                            </h3>
+                            <div id="accordion-req-body-7" class="hidden overflow-hidden" aria-labelledby="accordion-req-heading-7">
+                                <div class="p-5 border border-t-0 border-gray-200 rounded-b-lg">
+                                    <p class="text-gray-600 text-left">Prepara su kit de bienvenida (platos, comida, lugar de descanso, transportadora, arenero). Asegura el lugar, protege ventanas o posibles lugares de fuga.</p>
+                                </div>
+                            </div>
+
+                            <!-- Bloque 8 -->
+                            <h3 id="accordion-req-heading-8" data-aos="fade-up" data-aos-offset="250" data-aos-delay="500">
+                                <button type="button" class="flex items-center justify-between w-full p-5 
+                                        font-medium text-left rtl:text-right text-gray-600 
+                                        border border-b-indigo-900 rounded-t-3xl
+                                        hover:bg-slate-300 active:bg-slate-400 
+                                        gap-3 transition-all duration-300 ease-in-out"
+                                        data-accordion-target="#accordion-req-body-8"
+                                        aria-expanded="false" aria-controls="accordion-req-body-8">
+                                    <span><i class="fa-solid fa-magnifying-glass mr-2"></i>Seguimiento</span>
+                                    <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0 transition-transform duration-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
+                                    </svg>
+                                </button>
+                            </h3>
+                            <div id="accordion-req-body-8" class="hidden overflow-hidden" aria-labelledby="accordion-req-heading-8">
+                                <div class="p-5 border border-t-0 border-gray-200 rounded-b-lg">
+                                    <p class="text-gray-600 text-left">Debes comprometerte a enviar una foto y un vídeo del adoptado anualmente y/o formar parte del grupo de adoptables de 31 Gatitos.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bloque 9 -->
+                    <div class="mt-4 md:mt-0 max-w-full md:max-w-xl mx-auto" data-aos="fade-up" data-aos-offset="250" data-aos-delay="500">
+                        <h3 id="accordion-req-heading-9">
+                            <button type="button" class="flex items-center justify-between w-full p-5 
+                                        font-medium text-left rtl:text-right text-gray-600 
+                                        border border-b-indigo-900 rounded-t-3xl
+                                        hover:bg-slate-300 active:bg-slate-400 
+                                        gap-3 transition-all duration-300 ease-in-out"
+                                        data-accordion-target="#accordion-req-body-9"
+                                        aria-expanded="false" aria-controls="accordion-req-body-9">
+                                <span><i class="fa-solid fa-signature mr-2"></i>Firmar contrato.</span>
+                                <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0 transition-transform duration-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
+                                </svg>
+                            </button>
+                        </h3>
+                        <div id="accordion-req-body-9" class="hidden overflow-hidden" aria-labelledby="accordion-req-heading-9">
+                            <div class="p-5 border border-t-0 border-gray-200 rounded-b-lg">
+                                <p class="text-gray-600 text-left">La adopción es un proceso serio. Firmamos un contrato y debes entregar copia de tu identificación oficial.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Mini sección -->
+        <section class="bg-slate-200 relative">
+            <div class="container mx-auto px-4 py-8">
+                <div class="gap-8" data-aos="fade-up" data-aos-offset="250" data-aos-delay="500">
+                    
+                    <span href="adopta.html" class="block text-center p-6 rounded-lg hover:shadow-2xl transition-shadow duration-500 ease-in-out">
+                        <i class="text-gray-600 fa-solid fa-quote-left"></i>
+                        <p class="text-gray-600 ">Si algo me ha enseñado Urano (gatito de 12 años), es que informándome adecuadamente supe que podíamos adaptarnos 
+                            perfectamente. Al principio era tímido, como todos los gatos. Pero con una buena ración de comida húmeda, premios, paciencia, 
+                            cariño y tolerancia a su espacio, él es el ejemplo de que solo necesitas darle un espacio en tu corazón y en tu hogar a un gato para 
+                            que sea tu compañero ideal, sin importar su edad o su color.</p>
+                        </span>
+                    
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <!-- Inicio del footer -->
+    <footer class="bg-indigo-950 text-gray-300 py-8">
+        <div class="container mx-auto px-4r">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+                
+                <div>
+                    <h4 class="font-bold mb-4">Horario</h4>
+                    <p class="mt-4 mb-4 text-sm">
+                        Martes a Viernes 14:00 - 21:00<br>
+                        Sábado y Domingo: 12:00 - 21:00
+                    </p>
+                    <p class="text-sm">C. 17 58-Local 2, San Pedro de los Pinos, Benito Juárez, 03800 Ciudad de México, CDMX</p>
+                </div>
+
+                <div class="md:place-items-center">
+                    <div class="md:text-left">
+                        <h4 class="font-bold mb-4">Enlaces</h4>
+                        <ul>
+                            <li><a href="index.html" class="hover:text-white">Inicio</a></li>
+                            <li><a href="adopta.html" class="hover:text-white">Adopta</a></li>
+                            <li><a href="apadrina.html" class="hover:text-white">Apadrina</a></li>
+                            <li><a href="visitanos.html" class="hover:text-white">Visítanos</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="md:place-items-end">
+                    <h4 class="font-bold mb-4">Síguenos</h4>
+                    <div class="flex justify-center md:justify-start space-x-4">
+                        <a href="https://www.facebook.com/31gatitosMx" class="hover:text-white">FB</a>
+                        <a href="https://www.instagram.com/31gatitos/" class="hover:text-white">IG</a>
+                        <a href="https://www.tiktok.com/@31gatitos" class="hover:text-white">TK</a> 
+                    </div>
+                </div>
+
+            </div>
+            <hr class="border-gray-700 my-6">
+            <p class="text-center text-sm">
+                &copy; 2025 31 Gatitos. Todos los derechos reservados.
+            </p>
+        </div>
+    </footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // --- ELEMENTOS PRINCIPALES ---
+    const catalogoGrid = document.getElementById('gatos-grid');
+    const paginationControls = document.getElementById('pagination-controls');
+    const sortButton = document.getElementById('dropdownDefaultButton');
+    const sortDropdown = document.getElementById('dropdown-sort');
+    const seccionCatalogo = document.querySelector('#gatos-grid')?.closest('section');
+    const seccionRequisitos = document.getElementById('requisitos');
+    const perfilDetalleContenedor = document.getElementById('perfil-gato-detalle');
+
+    if (!catalogoGrid || !paginationControls || !sortButton || !sortDropdown) return;
+
+    const itemsPerPage = 10;
+    let currentPage = 1;
+    let currentSort = 'recientes';
+    let sortedGatos = [...gatosParaAdoptar];
+
+    // --- FUNCIÓN PARA ORDENAR ---
+    function sortGatos(sortBy) {
+        currentSort = sortBy;
+        switch (sortBy) {
+            case 'recientes': sortedGatos.sort((a, b) => b.id - a.id); break;
+            case 'antiguos': sortedGatos.sort((a, b) => a.id - b.id); break;
+            case 'edadAsc': sortedGatos.sort((a, b) => a.edadNum - b.edadNum); break;
+            case 'edadDesc': sortedGatos.sort((a, b) => b.edadNum - a.edadNum); break;
+            case 'sexo': sortedGatos.sort((a, b) => a.sexo.localeCompare(b.sexo)); break;
+            default: sortedGatos.sort((a, b) => b.id - a.id);
+        }
+        const sortOptionText = sortDropdown.querySelector(`[data-sort="${sortBy}"]`).innerText;
+        sortButton.childNodes[0].nodeValue = `Ordenar por: ${sortOptionText} `;
+        displayPage(1);
+    }
+
+    // --- FUNCIÓN PARA MOSTRAR UNA PÁGINA ---
+    function displayPage(page) {
+        currentPage = page;
+        catalogoGrid.innerHTML = '';
+        paginationControls.innerHTML = '';
+
+        const startIndex = (page - 1) * itemsPerPage;
+        const endIndex = startIndex + itemsPerPage;
+        const gatosEnPagina = sortedGatos.slice(startIndex, endIndex);
+
+        gatosEnPagina.forEach((gato, index) => {
+            const delay = 0;
+            const tarjetaHTML = `
+                <div class="relative group cursor-pointer text-center" 
+                     data-gato-id="${gato.id}" 
+                     data-aos="fade-up" 
+                     data-aos-offset="150" 
+                     data-aos-delay="${delay}">
+                    <div class="relative overflow-hidden rounded-lg card-container">
+                        <img src="${gato.foto}" alt="${gato.nombre}"
+                            class="rounded-lg shadow-md w-full object-cover aspect-square
+                                   transition-all duration-300 ease-in-out
+                                   group-hover:brightness-75 group-hover:scale-105" />
+                        <div class="card-overlay-text">
+                            <p class="text-xl font-bold">${gato.nombre}</p>
+                            <p class="text-lg">${gato.sexo}</p>
+                            <p class="text-lg">${gato.edad}</p>
+                        </div>
+                    </div>
+                    <p class="font-semibold text-gray-800 mt-2">${gato.nombre}</p>
+                </div>
+            `;
+            catalogoGrid.innerHTML += tarjetaHTML;
+        });
+
+        // --- Evento para abrir perfil ---
+        catalogoGrid.querySelectorAll('[data-gato-id]').forEach(tarjeta => {
+            tarjeta.addEventListener('click', function() {
+                mostrarPerfilGato(this.dataset.gatoId);
+            });
+        });
+
+        setupPagination();
+        setTimeout(() => { AOS.refreshHard(); }, 50);
+    }
+
+    // --- PAGINACIÓN ---
+    function setupPagination() {
+        paginationControls.innerHTML = '';
+        const baseButtonClasses = 'flex items-center justify-center px-3 h-8 text-sm font-medium';
+        const normalButtonClasses = `${baseButtonClasses} text-gray-500 rounded-lg hover:bg-gray-100 hover:text-gray-700`;
+        const activeButtonClasses = `${baseButtonClasses} text-violet-600 bg-violet-200 border border-transparent rounded-lg`;
+        const totalPages = Math.ceil(sortedGatos.length / itemsPerPage);
+        const maxPagesToShow = 5;
+
+        // Botón anterior
+        if (currentPage > 1) {
+            const prev = document.createElement('button');
+            prev.innerHTML = `<svg class="w-2.5 h-2.5 rtl:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/></svg>`;
+            prev.className = normalButtonClasses;
+            prev.onclick = () => displayPage(currentPage - 1);
+            paginationControls.appendChild(prev);
+        }
+
+        let startPage = Math.max(1, currentPage - Math.floor(maxPagesToShow / 2));
+        let endPage = Math.min(totalPages, startPage + maxPagesToShow - 1);
+        if (endPage - startPage + 1 < maxPagesToShow)
+            startPage = Math.max(1, endPage - maxPagesToShow + 1);
+
+        for (let i = startPage; i <= endPage; i++) {
+            const btn = document.createElement('button');
+            btn.innerText = i;
+            btn.className = i === currentPage ? activeButtonClasses : normalButtonClasses;
+            btn.onclick = () => displayPage(i);
+            paginationControls.appendChild(btn);
+        }
+
+        if (currentPage < totalPages) {
+            const next = document.createElement('button');
+            next.innerHTML = `<svg class="w-2.5 h-2.5 rtl:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/></svg>`;
+            next.className = normalButtonClasses;
+            next.onclick = () => displayPage(currentPage + 1);
+            paginationControls.appendChild(next);
+        }
+    }
+
+    // --- MOSTRAR PERFIL DETALLADO ---
+    function mostrarPerfilGato(gatoId) {
+        const gato = gatosParaAdoptar.find(g => g.id === parseInt(gatoId));
+        if (!gato) return;
+
+        seccionCatalogo?.classList.add('hidden');
+        seccionRequisitos?.classList.add('hidden');
+        paginationControls.classList.add('hidden');
+
+        perfilDetalleContenedor.innerHTML = `
+            <button id="volver-catalogo" class="mb-6 text-violet-600 hover:text-violet-800 font-semibold transition">
+                &larr; Volver al catálogo
+            </button>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+                <div class="md:col-span-1">
+                    <img src="${gato.foto}" alt="${gato.nombre}" class="w-full rounded-lg shadow-lg aspect-square object-cover">
+                </div>
+                <div class="md:col-span-2">
+                    <h1 class="text-4xl font-bold text-gray-900 mb-2">${gato.nombre}</h1>
+                    <p class="text-lg text-gray-600 mb-4">Tiene ${gato.edadTexto || gato.edad}</p>
+                    <div class="grid grid-cols-2 gap-4 mb-6 text-sm text-gray-700">
+                        <div><strong>Sexo:</strong> ${gato.sexo}</div>
+                        <div><strong>Esterilizado:</strong> Sí (Negativo VIF/FeLV)</div>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Mi Historia</h3>
+                    <p class="text-gray-600 mb-6">${gato.biografia || '¡Una historia esperando ser escrita contigo!'}</p> 
+                    <div class="flex gap-4">
+                        <button onclick="abrirFormularioAdopcion(${gato.id})" class="bg-violet-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-violet-600 transition">Adóptame</button>
+                        <a href="apadrina.html#gato-${gato.id}" class="bg-gray-200 text-gray-800 font-bold py-3 px-6 rounded-lg hover:bg-gray-300 transition">Apadríname</a>
+                    </div>
+                </div>
+            </div>
+            <div id="modal-adopcion-${gato.id}" class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center p-4">
+                <div class="bg-white rounded-lg shadow-xl p-6 w-full max-w-md">
+                    <h2 class="text-2xl font-bold mb-4">Solicitud para ${gato.nombre}</h2>
+                    <p>Formulario de adopción aquí...</p>
+                    <button onclick="cerrarFormularioAdopcion(${gato.id})" class="mt-4 text-gray-500 hover:text-gray-700">Cerrar</button>
+                </div>
+            </div>
+        `;
+        perfilDetalleContenedor.classList.remove('hidden');
+        document.getElementById('volver-catalogo').addEventListener('click', mostrarCatalogo);
+        perfilDetalleContenedor.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // --- VOLVER AL CATÁLOGO ---
+    function mostrarCatalogo() {
+        perfilDetalleContenedor.classList.add('hidden');
+        perfilDetalleContenedor.innerHTML = '';
+        seccionCatalogo?.classList.remove('hidden');
+        seccionRequisitos?.classList.remove('hidden');
+        paginationControls.classList.remove('hidden');
+        setTimeout(() => { AOS.refreshHard(); }, 50);
+    }
+
+    // --- MODAL ADOPCIÓN ---
+    function abrirFormularioAdopcion(gatoId) {
+        const modal = document.getElementById(`modal-adopcion-${gatoId}`);
+        if (modal) modal.classList.remove('hidden');
+    }
+    function cerrarFormularioAdopcion(gatoId) {
+        const modal = document.getElementById(`modal-adopcion-${gatoId}`);
+        if (modal) modal.classList.add('hidden');
+    }
+
+    // --- DROPDOWN ORDEN ---
+    sortDropdown.addEventListener('click', function(event) {
+        if (event.target.tagName === 'A' && event.target.dataset.sort) {
+            event.preventDefault();
+            sortGatos(event.target.dataset.sort);
+        }
+    });
+
+    // --- INICIALIZAR ---
+    sortGatos(currentSort);
+    window.abrirFormularioAdopcion = abrirFormularioAdopcion;
+    window.cerrarFormularioAdopcion = cerrarFormularioAdopcion;
+});
+</script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script src="assets/assets/adopta/adopta.js"></script>
+<script>
+    AOS.init({
+    duration: 800,
+    once: true     
+    });
+</script>
 </body>
 </html>
