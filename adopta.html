@@ -149,10 +149,10 @@
                 </div>
             </div>
         </section>
-        <section id="perfil-gato-detalle" class="bg-slate-100 relative z-10 -mt-20 container mx-auto px-4 py-12 hidden"></section>
+        <section id="perfil-gato-detalle" class="bg-slate-100 relative z-10 mt-20 mx-auto px-4 py-12 hidden"></section>
 
         <!-- Sección de Requisitos -->
-        <section id="requisitos" class="bg-slate-200 relative z-10 py-12 md:py-20 pb-16 md:pb-20"> 
+        <section class="bg-slate-200 relative z-10 py-12 md:py-20 pb-16 md:pb-20"> 
             <div class="container mx-auto px-4">
                 <h2 class="text-3xl font-bold text-gray-900 mb-10 text-center" 
                     data-aos="fade-up" data-aos-offset="250" data-aos-delay="500">Requisitos de Adopción</h2>
@@ -432,7 +432,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const sortButton = document.getElementById('dropdownDefaultButton');
     const sortDropdown = document.getElementById('dropdown-sort');
     const seccionCatalogo = document.querySelector('#gatos-grid')?.closest('section');
-    const seccionRequisitos = document.getElementById('requisitos');
     const perfilDetalleContenedor = document.getElementById('perfil-gato-detalle');
 
     if (!catalogoGrid || !paginationControls || !sortButton || !sortDropdown) return;
@@ -550,15 +549,14 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!gato) return;
 
         seccionCatalogo?.classList.add('hidden');
-        seccionRequisitos?.classList.add('hidden');
         paginationControls.classList.add('hidden');
 
         perfilDetalleContenedor.innerHTML = `
-            <button id="volver-catalogo" class="mb-6 text-violet-600 hover:text-violet-800 font-semibold transition">
+            <button id="volver-catalogo" class="mb-6 text-violet-600 ml-20 hover:text-violet-800 font-semibold transition">
                 &larr; Volver al catálogo
             </button>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
-                <div class="md:col-span-1">
+                <div class="md:col-span-1 mx-20">
                     <img src="${gato.foto}" alt="${gato.nombre}" class="w-full rounded-lg shadow-lg aspect-square object-cover">
                 </div>
                 <div class="md:col-span-2">
@@ -594,7 +592,6 @@ document.addEventListener('DOMContentLoaded', function() {
         perfilDetalleContenedor.classList.add('hidden');
         perfilDetalleContenedor.innerHTML = '';
         seccionCatalogo?.classList.remove('hidden');
-        seccionRequisitos?.classList.remove('hidden');
         paginationControls.classList.remove('hidden');
         setTimeout(() => { AOS.refreshHard(); }, 50);
     }
