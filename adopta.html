@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -57,17 +57,20 @@
         <!-- Sección de portada -->
         <section class="sticky top-0 h-screen z-0">
             <div class="absolute inset-0 bg-black">
-                <img src="assets/assets/main/gato_portada_vertical.png" alt="..." 
-                    class="w-full h-full object-cover object-center md:hidden">
-                    
-                <img src="assets/assets/main/gato_portada_1.png" alt="..." 
-                    class="slideshow-image hidden md:block w-full h-screen object-cover object-right">
 
-                <img src="assets/assets/main/gato_portada_2.png" alt="Gatitos 2" 
-                    class="slideshow-image hidden md:block w-full h-screen object-cover object-right">
+                <!-- Slideshow escritorio -->
+                <div class="hidden md:block">
+                    <img src="assets/assets/adopta/gato_portada_1.png" class="slideshow-image w-full h-screen object-cover object-right">
+                    <img src="assets/assets/adopta/gato_portada_2.png" class="slideshow-image w-full h-screen object-cover object-right">
+                    <img src="assets/assets/adopta/gato_portada_3.png" class="slideshow-image w-full h-screen object-cover object-right">
+                </div>
 
-                <img src="assets/assets/main/cafe_portada_1.png" alt="Gatitos 3" 
-                    class="slideshow-image hidden md:block w-full h-screen object-cover object-right">
+                <!-- Slideshow móvil -->
+                <div class="md:hidden">
+                    <img src="assets/assets/adopta/gato_portada_vertical_1.png" class="slideshow-image w-full h-full object-cover object-center">
+                    <img src="assets/assets/adopta/gato_portada_vertical_2.png" class="slideshow-image w-full h-full object-cover object-center">
+                    <img src="assets/assets/adopta/gato_portada_vertical_3.png" class="slideshow-image w-full h-full object-cover object-center">
+                </div>
             </div>
             
             <!-- Sombra del fondo-->>
@@ -78,7 +81,7 @@
 
                 <!--Texto para teléfono-->
                 <h1 class="text-4xl md:text-6xl mt-0 md:mt-20 font-bold text-white text-center md:hidden">
-                    La catfetería de <br>31 gatitos
+                    Adopta a un michi. <br>Cambia una vida.
                 </h1>
                 <!--Texto para escritorio-->
                 <h1 class="hidden md:block text-4xl md:text-6xl mt-0 md:mt-20 font-bold text-white">
@@ -87,7 +90,7 @@
 
                 <!--Texto para teléfono-->
                 <p class="mt-4 text-lg text-gray-200 max-w-2xl text-center md:hidden">
-                    Más que una cafetería, un refugio para gatos en busca de un hogar lleno de amor.
+                    Adoptar un gato no solo cambia su vida, sino también la tuya. En 31 Gatitos, cada adopción es una historia de amor que comienza.
                 </p>
                 <!--Texto para escritorio-->
                 <p class="hidden md:block mt-4 text-lg text-gray-200 max-w-2xl text-justify">
@@ -95,7 +98,7 @@
                 </p>
                 
                 <div class="mt-8 flex gap-4 mx-auto md:place-content-start place-content-center">
-                    <a href="apadrina.html" 
+                    <a href="#requisitos" 
                        class="bg-violet-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-violet-600 transition-transform 
                               duration-150 ease-in-out hover:scale-105 active:scale-95">
                         Ver requisitos
@@ -114,14 +117,15 @@
                     <h2 class="text-3xl font-bold text-gray-900">Michis Disponibles</h2>
                     <div>
                         <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown-sort"
-                                class="text-white bg-violet-500 hover:bg-violet-600 focus:ring-4 focus:outline-none focus:ring-violet-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-violet-600 dark:hover:bg-violet-700 dark:focus:ring-violet-800"
+                                class="text-white bg-violet-500 hover:bg-violet-600 focus:escale-110 font-medium rounded-lg 
+                                text-sm px-4 py-2.5 text-center inline-flex items-center bg-violet-600 
+                                hover:bg-violet-800 active:scale-105 transition-all duration-150 ease-in-out"
                                 type="button">
                             Ordenar por
                             <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
                             </svg>
                         </button>
-
                         <div id="dropdown-sort" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
                             <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
                                 <li>
@@ -149,10 +153,12 @@
                 </div>
             </div>
         </section>
+        
+        <!-- Sección de perfil de gato -->
         <section id="perfil-gato-detalle" class="bg-slate-100 relative z-10 mt-20 mx-auto px-4 py-12 hidden"></section>
 
         <!-- Sección de Requisitos -->
-        <section class="bg-slate-200 relative z-10 py-12 md:py-20 pb-16 md:pb-20"> 
+        <section id="requisitos" class="bg-slate-200 relative z-10 py-12 md:py-20 pb-16 md:pb-20"> 
             <div class="container mx-auto px-4">
                 <h2 class="text-3xl font-bold text-gray-900 mb-10 text-center" 
                     data-aos="fade-up" data-aos-offset="250" data-aos-delay="500">Requisitos de Adopción</h2>
@@ -424,206 +430,11 @@
         </div>
     </footer>
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    // --- ELEMENTOS PRINCIPALES ---
-    const catalogoGrid = document.getElementById('gatos-grid');
-    const paginationControls = document.getElementById('pagination-controls');
-    const sortButton = document.getElementById('dropdownDefaultButton');
-    const sortDropdown = document.getElementById('dropdown-sort');
-    const seccionCatalogo = document.querySelector('#gatos-grid')?.closest('section');
-    const perfilDetalleContenedor = document.getElementById('perfil-gato-detalle');
-
-    if (!catalogoGrid || !paginationControls || !sortButton || !sortDropdown) return;
-
-    const itemsPerPage = 10;
-    let currentPage = 1;
-    let currentSort = 'recientes';
-    let sortedGatos = [...gatosParaAdoptar];
-
-    // --- FUNCIÓN PARA ORDENAR ---
-    function sortGatos(sortBy) {
-        currentSort = sortBy;
-        switch (sortBy) {
-            case 'recientes': sortedGatos.sort((a, b) => b.id - a.id); break;
-            case 'antiguos': sortedGatos.sort((a, b) => a.id - b.id); break;
-            case 'edadAsc': sortedGatos.sort((a, b) => a.edadNum - b.edadNum); break;
-            case 'edadDesc': sortedGatos.sort((a, b) => b.edadNum - a.edadNum); break;
-            case 'sexo': sortedGatos.sort((a, b) => a.sexo.localeCompare(b.sexo)); break;
-            default: sortedGatos.sort((a, b) => b.id - a.id);
-        }
-        const sortOptionText = sortDropdown.querySelector(`[data-sort="${sortBy}"]`).innerText;
-        sortButton.childNodes[0].nodeValue = `Ordenar por: ${sortOptionText} `;
-        displayPage(1);
-    }
-
-    // --- FUNCIÓN PARA MOSTRAR UNA PÁGINA ---
-    function displayPage(page) {
-        currentPage = page;
-        catalogoGrid.innerHTML = '';
-        paginationControls.innerHTML = '';
-
-        const startIndex = (page - 1) * itemsPerPage;
-        const endIndex = startIndex + itemsPerPage;
-        const gatosEnPagina = sortedGatos.slice(startIndex, endIndex);
-
-        gatosEnPagina.forEach((gato, index) => {
-            const delay = 0;
-            const tarjetaHTML = `
-                <div class="relative group cursor-pointer text-center" 
-                     data-gato-id="${gato.id}" 
-                     data-aos="fade-up" 
-                     data-aos-offset="150" 
-                     data-aos-delay="${delay}">
-                    <div class="relative overflow-hidden rounded-lg card-container">
-                        <img src="${gato.foto}" alt="${gato.nombre}"
-                            class="rounded-lg shadow-md w-full object-cover aspect-square
-                                   transition-all duration-300 ease-in-out
-                                   group-hover:brightness-75 group-hover:scale-105" />
-                        <div class="card-overlay-text">
-                            <p class="text-xl font-bold">${gato.nombre}</p>
-                            <p class="text-lg">${gato.sexo}</p>
-                            <p class="text-lg">${gato.edad}</p>
-                        </div>
-                    </div>
-                    <p class="font-semibold text-gray-800 mt-2">${gato.nombre}</p>
-                </div>
-            `;
-            catalogoGrid.innerHTML += tarjetaHTML;
-        });
-
-        // --- Evento para abrir perfil ---
-        catalogoGrid.querySelectorAll('[data-gato-id]').forEach(tarjeta => {
-            tarjeta.addEventListener('click', function() {
-                mostrarPerfilGato(this.dataset.gatoId);
-            });
-        });
-
-        setupPagination();
-        setTimeout(() => { AOS.refreshHard(); }, 50);
-    }
-
-    // --- PAGINACIÓN ---
-    function setupPagination() {
-        paginationControls.innerHTML = '';
-        const baseButtonClasses = 'flex items-center justify-center px-3 h-8 text-sm font-medium';
-        const normalButtonClasses = `${baseButtonClasses} text-gray-500 rounded-lg hover:bg-gray-100 hover:text-gray-700`;
-        const activeButtonClasses = `${baseButtonClasses} text-violet-600 bg-violet-200 border border-transparent rounded-lg`;
-        const totalPages = Math.ceil(sortedGatos.length / itemsPerPage);
-        const maxPagesToShow = 5;
-
-        // Botón anterior
-        if (currentPage > 1) {
-            const prev = document.createElement('button');
-            prev.innerHTML = `<svg class="w-2.5 h-2.5 rtl:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/></svg>`;
-            prev.className = normalButtonClasses;
-            prev.onclick = () => displayPage(currentPage - 1);
-            paginationControls.appendChild(prev);
-        }
-
-        let startPage = Math.max(1, currentPage - Math.floor(maxPagesToShow / 2));
-        let endPage = Math.min(totalPages, startPage + maxPagesToShow - 1);
-        if (endPage - startPage + 1 < maxPagesToShow)
-            startPage = Math.max(1, endPage - maxPagesToShow + 1);
-
-        for (let i = startPage; i <= endPage; i++) {
-            const btn = document.createElement('button');
-            btn.innerText = i;
-            btn.className = i === currentPage ? activeButtonClasses : normalButtonClasses;
-            btn.onclick = () => displayPage(i);
-            paginationControls.appendChild(btn);
-        }
-
-        if (currentPage < totalPages) {
-            const next = document.createElement('button');
-            next.innerHTML = `<svg class="w-2.5 h-2.5 rtl:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/></svg>`;
-            next.className = normalButtonClasses;
-            next.onclick = () => displayPage(currentPage + 1);
-            paginationControls.appendChild(next);
-        }
-    }
-
-    // --- MOSTRAR PERFIL DETALLADO ---
-    function mostrarPerfilGato(gatoId) {
-        const gato = gatosParaAdoptar.find(g => g.id === parseInt(gatoId));
-        if (!gato) return;
-
-        seccionCatalogo?.classList.add('hidden');
-        paginationControls.classList.add('hidden');
-
-        perfilDetalleContenedor.innerHTML = `
-            <button id="volver-catalogo" class="mb-6 text-violet-600 ml-20 hover:text-violet-800 font-semibold transition">
-                &larr; Volver al catálogo
-            </button>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
-                <div class="md:col-span-1 mx-20">
-                    <img src="${gato.foto}" alt="${gato.nombre}" class="w-full rounded-lg shadow-lg aspect-square object-cover">
-                </div>
-                <div class="md:col-span-2">
-                    <h1 class="text-4xl font-bold text-gray-900 mb-2">${gato.nombre}</h1>
-                    <p class="text-lg text-gray-600 mb-4">Tiene ${gato.edadTexto || gato.edad}</p>
-                    <div class="grid grid-cols-2 gap-4 mb-6 text-sm text-gray-700">
-                        <div><strong>Sexo:</strong> ${gato.sexo}</div>
-                        <div><strong>Esterilizado:</strong> Sí (Negativo VIF/FeLV)</div>
-                    </div>
-                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Mi Historia</h3>
-                    <p class="text-gray-600 mb-6">${gato.biografia || '¡Una historia esperando ser escrita contigo!'}</p> 
-                    <div class="flex gap-4">
-                        <button onclick="abrirFormularioAdopcion(${gato.id})" class="bg-violet-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-violet-600 transition">Adóptame</button>
-                        <a href="apadrina.html#gato-${gato.id}" class="bg-gray-200 text-gray-800 font-bold py-3 px-6 rounded-lg hover:bg-gray-300 transition">Apadríname</a>
-                    </div>
-                </div>
-            </div>
-            <div id="modal-adopcion-${gato.id}" class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center p-4">
-                <div class="bg-white rounded-lg shadow-xl p-6 w-full max-w-md">
-                    <h2 class="text-2xl font-bold mb-4">Solicitud para ${gato.nombre}</h2>
-                    <p>Formulario de adopción aquí...</p>
-                    <button onclick="cerrarFormularioAdopcion(${gato.id})" class="mt-4 text-gray-500 hover:text-gray-700">Cerrar</button>
-                </div>
-            </div>
-        `;
-        perfilDetalleContenedor.classList.remove('hidden');
-        document.getElementById('volver-catalogo').addEventListener('click', mostrarCatalogo);
-        perfilDetalleContenedor.scrollIntoView({ behavior: 'smooth' });
-    }
-
-    // --- VOLVER AL CATÁLOGO ---
-    function mostrarCatalogo() {
-        perfilDetalleContenedor.classList.add('hidden');
-        perfilDetalleContenedor.innerHTML = '';
-        seccionCatalogo?.classList.remove('hidden');
-        paginationControls.classList.remove('hidden');
-        setTimeout(() => { AOS.refreshHard(); }, 50);
-    }
-
-    // --- MODAL ADOPCIÓN ---
-    function abrirFormularioAdopcion(gatoId) {
-        const modal = document.getElementById(`modal-adopcion-${gatoId}`);
-        if (modal) modal.classList.remove('hidden');
-    }
-    function cerrarFormularioAdopcion(gatoId) {
-        const modal = document.getElementById(`modal-adopcion-${gatoId}`);
-        if (modal) modal.classList.add('hidden');
-    }
-
-    // --- DROPDOWN ORDEN ---
-    sortDropdown.addEventListener('click', function(event) {
-        if (event.target.tagName === 'A' && event.target.dataset.sort) {
-            event.preventDefault();
-            sortGatos(event.target.dataset.sort);
-        }
-    });
-
-    // --- INICIALIZAR ---
-    sortGatos(currentSort);
-    window.abrirFormularioAdopcion = abrirFormularioAdopcion;
-    window.cerrarFormularioAdopcion = cerrarFormularioAdopcion;
-});
-</script>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script src="assets/assets/adopta/adopta.js"></script>
+<script src="assets/assets/adopta/gatos.js"></script>
+<script src="assets/assets/adopta/mostrar_perfil.js"></script>
 <script>
     AOS.init({
     duration: 800,

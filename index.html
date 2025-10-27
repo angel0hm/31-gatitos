@@ -56,17 +56,20 @@
         <!-- Sección de portada -->
         <section class="sticky top-0 h-screen z-0">
             <div class="absolute inset-0 bg-black">
-                <img src="assets/assets/main/gato_portada_vertical.png" alt="..." 
-                    class="w-full h-full object-cover object-center md:hidden">
                     
-                <img src="assets/assets/main/gato_portada_1.png" alt="..." 
-                    class="slideshow-image hidden md:block w-full h-screen object-cover object-right">
+                <!-- Slideshow escritorio -->
+                <div class="hidden md:block">
+                    <img src="assets/assets/main/gato_portada_1.png" class="slideshow-image w-full h-screen object-cover object-right">
+                    <img src="assets/assets/main/gato_portada_2.png" class="slideshow-image w-full h-screen object-cover object-right">
+                    <img src="assets/assets/main/cafe_portada_1.png" class="slideshow-image w-full h-screen object-cover object-right">
+                </div>
 
-                <img src="assets/assets/main/gato_portada_2.png" alt="Gatitos 2" 
-                    class="slideshow-image hidden md:block w-full h-screen object-cover object-right">
-
-                <img src="assets/assets/main/cafe_portada_1.png" alt="Gatitos 3" 
-                    class="slideshow-image hidden md:block w-full h-screen object-cover object-right">
+                <!-- Slideshow móvil -->
+                <div class="md:hidden">
+                    <img src="assets/assets/main/gato_portada_vertical_1.png" class="slideshow-image w-full h-full object-cover object-center">
+                    <img src="assets/assets/main/gato_portada_vertical_2.png" class="slideshow-image w-full h-full object-cover object-center">
+                    <img src="assets/assets/main/gato_portada_vertical_3.png" class="slideshow-image w-full h-full object-cover object-center">
+                </div>
             </div>
             
             <!-- Sombra del fondo-->>
@@ -118,79 +121,8 @@
                         Ver todos →
                     </a>
                 </div>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                    <!-- Gato 1-->
-                    <div class="relative group cursor-pointer text-center" data-aos="fade-up" data-aos-offset="250" data-aos-delay="200">
-
-                        <div class="relative overflow-hidden rounded-lg card-container">
-
-                            <img src="assets/assets/main/gato_chilaquil.png" alt="Chilaquil"
-                                class="rounded-lg shadow-md w-full object-cover aspect-square
-                                        transition-all duration-300 ease-in-out
-                                        group-hover:brightness-75 group-hover:scale-105" />
-                                <div class="card-overlay-text">
-                                <p class="text-xl font-bold">Chilaquil</p>
-                                <p class="text-lg">Hembra</p>
-                                <p class="text-lg">2 Años</p>
-                            </div>
-
-                        </div> <p class="font-semibold text-gray-800 mt-2">Chilaquil</p>
-
-                    </div>
-                    
-                    <!-- Gato 2-->
-                    <div class="relative group cursor-pointer text-center" data-aos="fade-up" data-aos-offset="250" data-aos-delay="300">
-
-                        <div class="relative overflow-hidden rounded-lg card-container">
-
-                            <img src="assets/assets/main/gato_hachi.png" alt="Chilaquil"
-                                class="rounded-lg shadow-md w-full object-cover aspect-square
-                                        transition-all duration-300 ease-in-out
-                                        group-hover:brightness-75 group-hover:scale-105" />
-                                <div class="card-overlay-text">
-                                <p class="text-xl font-bold">Hachi</p>
-                                <p class="text-lg">Hembra</p>
-                                <p class="text-lg">2 Años</p>
-                            </div>
-
-                        </div> <p class="font-semibold text-gray-800 mt-2">Hachi</p>
-                    </div>
-                    <!-- Gato 3-->
-                    <div class="relative group cursor-pointer text-center" data-aos="fade-up" data-aos-offset="250" data-aos-delay="400">
-
-                        <div class="relative overflow-hidden rounded-lg card-container">
-
-                            <img src="assets/assets/main/gato_aliceb.png" alt="Chilaquil"
-                                class="rounded-lg shadow-md w-full object-cover aspect-square
-                                        transition-all duration-300 ease-in-out
-                                        group-hover:brightness-75 group-hover:scale-105" />
-                                <div class="card-overlay-text">
-                                <p class="text-xl font-bold">Alice Baby</p>
-                                <p class="text-lg">Hembra</p>
-                                <p class="text-lg">2 Años</p>
-                            </div>
-
-                        </div> <p class="font-semibold text-gray-800 mt-2">Alice Baby</p>
-                    </div>
-                    <!-- Gato 4-->
-                    <div class="relative group cursor-pointer text-center" data-aos="fade-up" data-aos-offset="250" data-aos-delay="500">
-
-                        <div class="relative overflow-hidden rounded-lg card-container">
-
-                            <img src="assets/assets/main/gato_menganita.png" alt="Chilaquil"
-                                class="rounded-lg shadow-md w-full object-cover aspect-square
-                                        transition-all duration-300 ease-in-out
-                                        group-hover:brightness-75 group-hover:scale-105" />
-                                <div class="card-overlay-text">
-                                <p class="text-xl font-bold">Menganita</p>
-                                <p class="text-lg">Hembra</p>
-                                <p class="text-lg">2 Años</p>
-                            </div>
-
-                        </div> <p class="font-semibold text-gray-800 mt-2">Menganita</p>
-
-                    </div>
-                </div>
+                <!-- Michis disponibles -->
+                <div id="gatos-container" class="grid grid-cols-2 md:grid-cols-4 gap-6"></div>
             </div>
         </section>
 
@@ -328,5 +260,7 @@
         once: true     
       });
     </script>
+<script src="assets/assets/adopta/gatos.js"></script>
+<script src="assets/assets/main/gatosDisponibles.js"></script>
 </body>
 </html>
