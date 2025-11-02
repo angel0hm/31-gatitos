@@ -44,9 +44,9 @@
 
         <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
         <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0">
-            <li><a href="adopta.html" class="text-xl block py-2 px-3 text-violet-700 md:hover:text-violet-700 md:hover:scale-110 active:scale-95 transition-transform duration-150 ease-in-out">Adopta</a></li>
+            <li><a href="adopta.html" class="text-xl block py-2 px-3 text-white md:hover:text-violet-700 md:hover:scale-110 active:scale-95 transition-transform duration-150 ease-in-out">Adopta</a></li>
             <li><a href="apadrina.html" class="text-xl block py-2 px-3 text-white md:hover:text-violet-700 md:hover:scale-110 active:scale-95 transition-transform duration-150 ease-in-out">Donar</a></li>
-            <li><a href="visitanos.html" class="text-xl block py-2 px-3 text-white md:hover:text-violet-700 md:hover:scale-110 active:scale-95 transition-transform duration-150 ease-in-out">Visítanos</a></li>
+            <li><a href="visitanos.html" class="text-xl block py-2 px-3 text-violet-700 md:hover:text-violet-700 md:hover:scale-110 active:scale-95 transition-transform duration-150 ease-in-out">Visítanos</a></li>
         </ul>
         </div>
     </div>
@@ -110,17 +110,70 @@
             </div>
         </section>
 
-        <section class="bg-slate-100 relative z-10 -mt-20 rounded-t-3xl">
-            
-            <div class="container mx-auto px-4 py-16">
-                <div class="flex justify-between items-center mb-8" data-aos="fade-up">
-                    
-                    hola xd
-                </div>
 
+
+        <section class="bg-slate-200 z-10 -mt-20 mb-20 relative rounded-t-3xl">
+            <div class="container mx-auto px-4 py-16">
+                <div class="hover:shadow-2xl transition-shadow duration-500 ease-in-out">
+                    <div class="grid md:grid-cols-2 gap-8 items-center p-6" 
+                        data-aos="fade-up" data-aos-offset="250" data-aos-delay="150">
+                    
+                        <div class="flex justify-center">
+                            <img src="assets/assets/visitanos/gatoVisitanos.png" alt="Gato chef" class="max-h-80 w-auto object-contain">
+                        </div>
+
+                        <div class="text-center p-6 rounded-lg">
+                            <h3 class="text-2xl font-bold text-gray-900 mb-4">¡Miauvisítanos!</h3>
+                            <p class="text-gray-600 text-justify leading-relaxed">
+                            Disfruta de un excelente café rodeado de nuestros gatitos adoptables.
+                            Un espacio único donde la calidez de un buen espresso se encuentra con el amor incondicional.
+                            Visítanos, desconecta y carga energías con nuestra deliciosa repostería y la mejor compañía felina.
+                            ¡Tu pausa perfecta!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container mx-auto px-4 py-16">
+                <div class="hover:shadow-2xl transition-shadow duration-500 ease-in-out">
+                    <div class="grid md:grid-cols-2 gap-8 items-center p-6" 
+                        data-aos="fade-up" data-aos-offset="200" data-aos-delay="150">
+                    
+                        <div class="text-center p-6 rounded-lg">
+                            <h3 class="text-2xl font-bold text-gray-900 mb-4">¿Qué hay?</h3>
+                            <p class="text-gray-600 text-justify leading-relaxed">
+                            Tenemos nuestra sección boutique con productos exclusivos de 31 Gatitos, desde tazas y playeras hasta accesorios
+                            para ti o tus mascotas.
+                            Además, contamos con un área de juegos para que los gatitos puedan interactuar y divertirse 
+                            mientras tú disfrutas de tu café.
+                            </p>
+                        </div>
+                        <div class="flex justify-center">
+                            <img src="assets/assets/visitanos/gatoVisitanos2.png" alt="Gato chef" class="max-h-80 w-auto object-contain">
+                        </div>
+
+                        
+                    </div>
+                </div>
             </div>
         </section>
+        
 
+        <section id="catalogo-reglas" class="bg-slate-200 z-10 -mt-20 relative w-full overflow-hidden py-16 md:py-20">
+            <div data-aos="fade-up" data-aos-offset="250" data-aos-delay="150">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4 text-center">
+                Reglas
+                </h2>
+            <div id="slides-container" class="flex transition-transform duration-500 ease-in-out"></div>
+
+            <!-- Controles -->
+            <div class="flex justify-center items-center gap-8 mt-6" data-aos="fade-up" data-aos-offset="50" data-aos-delay="150">
+                <button id="prev" class="px-4 py-2 hover:scale-110 transition duration-150 ease-in-out"><svg class="w-2.5 h-2.5 rtl:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/></svg></button>
+                <div id="pagination" class="text-gray-700 font-medium"></div>
+                <button id="next" class="px-4 py-2 hover:scale-110 transition duration-150 ease-in-out"><svg class="w-2.5 h-2.5 rtl:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/></svg></button>
+            </div>
+            </div>
+        </section>
 
 
     </main>
@@ -171,6 +224,7 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script src="assets/assets/visitanos/listaReglas.js"></script>
     <script>
       AOS.init({
         duration: 800,

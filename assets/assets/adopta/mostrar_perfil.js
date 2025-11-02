@@ -1,5 +1,5 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // --- ELEMENTOS PRINCIPALES ---
+document.addEventListener('DOMContentLoaded', function () {
+    
     const catalogoGrid = document.getElementById('gatos-grid');
     const paginationControls = document.getElementById('pagination-controls');
     const sortButton = document.getElementById('dropdownDefaultButton');
@@ -9,26 +9,29 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (!catalogoGrid || !paginationControls || !sortButton || !sortDropdown) return;
 
+    // ESTADO
     const itemsPerPage = 10;
     let currentPage = 1;
     let currentSort = 'recientes';
-    let sortedGatos = [...gatosParaAdoptar];
+    let sortedGatos = Array.isArray(gatosParaAdoptar) ? [...gatosParaAdoptar] : [];
 
-    // --- FUNCIÓN PARA ORDENAR ---
+    // HELPERS
+    const $id = (id) => document.getElementById(id);
+    const safeText = (el, fallback = '') => (el ? el.innerText.trim() : fallback);
+
+    // ORDENAMIENTO 
     function sortGatos(sortBy) {
-    currentSort = sortBy;
-    const parseFecha = (fechaStr) => {
+        currentSort = sortBy;
+        const parseFecha = (fechaStr) => {
             const [dia, mes, año] = fechaStr.split('-').map(Number);
-            return new Date(año, mes - 1, dia); // Meses en Date son 0-11
+            return new Date(año, mes - 1, dia);
         };
 
         switch (sortBy) {
             case 'recientes':
-                // Ordena de fecha más nueva a más vieja (mayor timestamp a menor)
                 sortedGatos.sort((a, b) => parseFecha(b.fecha).getTime() - parseFecha(a.fecha).getTime());
                 break;
             case 'antiguos':
-                // Ordena de fecha más vieja a más nueva (menor timestamp a mayor)
                 sortedGatos.sort((a, b) => parseFecha(a.fecha).getTime() - parseFecha(b.fecha).getTime());
                 break;
             case 'edadAsc':
@@ -41,15 +44,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 sortedGatos.sort((a, b) => a.sexo.localeCompare(b.sexo));
                 break;
             default:
-                // Por defecto, ordena por recientes
                 sortedGatos.sort((a, b) => parseFecha(b.fecha).getTime() - parseFecha(a.fecha).getTime());
         }
-        const sortOptionText = sortDropdown.querySelector(`[data-sort="${sortBy}"]`).innerText;
+
+        const opt = sortDropdown.querySelector(`[data-sort="${sortBy}"]`);
+        const sortOptionText = safeText(opt, 'Recientes');
         sortButton.childNodes[0].nodeValue = `Ordenar por: ${sortOptionText} `;
-        displayPage(1); // Muestra la página 1 con el nuevo orden
+        displayPage(1);
     }
 
-    // --- FUNCIÓN PARA MOSTRAR UNA PÁGINA ---
+    // MOSTRAR PÁGINA
     function displayPage(page) {
         currentPage = page;
         catalogoGrid.innerHTML = '';
@@ -84,18 +88,21 @@ document.addEventListener('DOMContentLoaded', function() {
             catalogoGrid.innerHTML += tarjetaHTML;
         });
 
-        // --- Evento para abrir perfil ---
+        // abrir perfil
         catalogoGrid.querySelectorAll('[data-gato-id]').forEach(tarjeta => {
-            tarjeta.addEventListener('click', function() {
+            tarjeta.replaceWith(tarjeta.cloneNode(true));
+        });
+        catalogoGrid.querySelectorAll('[data-gato-id]').forEach(tarjeta => {
+            tarjeta.addEventListener('click', function () {
                 mostrarPerfilGato(this.dataset.gatoId);
             });
         });
 
         setupPagination();
-        setTimeout(() => { AOS.refreshHard(); }, 50);
+        setTimeout(() => { if (window.AOS && AOS.refreshHard) AOS.refreshHard(); }, 50);
     }
 
-    // --- PAGINACIÓN ---
+    // PAGINACIÓN
     function setupPagination() {
         paginationControls.innerHTML = '';
         const baseButtonClasses = 'flex items-center justify-center px-3 h-8 text-sm font-medium';
@@ -104,7 +111,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const totalPages = Math.ceil(sortedGatos.length / itemsPerPage);
         const maxPagesToShow = 5;
 
-        // Botón anterior
+        // Botón
         if (currentPage > 1) {
             const prev = document.createElement('button');
             prev.innerHTML = `<svg class="w-2.5 h-2.5 rtl:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/></svg>`;
@@ -126,6 +133,7 @@ document.addEventListener('DOMContentLoaded', function() {
             paginationControls.appendChild(btn);
         }
 
+        // Botón
         if (currentPage < totalPages) {
             const next = document.createElement('button');
             next.innerHTML = `<svg class="w-2.5 h-2.5 rtl:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/></svg>`;
@@ -135,7 +143,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // --- MOSTRAR PERFIL DETALLADO ---
+    // MOSTRAR PERFIL
     function mostrarPerfilGato(gatoId) {
         const gato = gatosParaAdoptar.find(g => g.id === parseInt(gatoId));
         if (!gato) return;
@@ -266,21 +274,20 @@ document.addEventListener('DOMContentLoaded', function() {
                                     required placeholder="Nombre completo">
                                 </div>
                                 <div>
-                                    <input type="email" id="email-${gato.id}" name="email" class="placeholder:text-gray-400 w-full px-3 py-2
+                                    <input type="email" id="email-${gato.id}" name="email" autocomplete="email" class="placeholder:text-gray-400 w-full px-3 py-2
                                     border-0 border-b border-gray-300
                                     focus:outline-none focus:ring-0 focus:border-violet-500" 
                                     required placeholder="Correo electrónico">
                                 </div>
                                 <div>
-                                    
                                     <input type="tel" id="telefono-${gato.id}" name="telefono" class="placeholder:text-gray-400 w-full px-3 py-2
                                     border-0 border-b border-gray-300
                                     focus:outline-none focus:ring-0 focus:border-violet-500" 
-                                    required required placeholder="Número telefónico">
+                                    required placeholder="Número telefónico">
                                 </div>
                                 <div class="flex items-center">
                                     <input type="checkbox" id="mayorEdad-${gato.id}" name="mayorEdad" class="h-4 w-4 text-violet-600 border-gray-300 rounded focus:outline-none focus:ring-0" required>
-                                    <label for="mayorEdad-${gato.id}" class="ml-2 block text-sm text-gray-700">Confirmo que soy mayor de edad (+18 años)</label>
+                                    <label for="mayorEdad-${gato.id}" class="ml-2 block text-sm text-gray-700">Confirmo que tengo la edad necesaria (+26 años)</label>
                                 </div>
                             </div>
                             <div class="mt-6 flex justify-end">
@@ -295,26 +302,26 @@ document.addEventListener('DOMContentLoaded', function() {
                             <div class="space-y-4">
                                 <div>
                                     <label for="hogar-${gato.id}" class="block mb-1 text-sm font-medium text-gray-700">¿Quiénes viven en tu casa? (adultos, niños, edades)</label>
-                                    <textarea id="hogar-${gato.id}" name="hogar" rows="2" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-violet-500 focus:border-violet-500" required></textarea>
+                                    <textarea id="hogar-${gato.id}" name="hogar" rows="2" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-violet-500 focus:border-violet-500"></textarea>
                                 </div>
                                 <div>
                                     <label for="mascotas-${gato.id}" class="block mb-1 text-sm font-medium text-gray-700">¿Tienes otras mascotas? Cuéntanos sobre ellas (especie, edad, carácter).</label>
-                                    <textarea id="mascotas-${gato.id}" name="mascotas" rows="2" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-violet-500 focus:border-violet-500" required></textarea>
+                                    <textarea id="mascotas-${gato.id}" name="mascotas" rows="2" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-violet-500 focus:border-violet-500" required></textarea>
                                 </div>
                                 <div>
                                     <label for="motivo-${gato.id}" class="block mb-1 text-sm font-medium text-gray-700">¿Por qué te gustaría adoptar a ${gato.nombre}?</label>
-                                    <textarea id="motivo-${gato.id}" name="motivo" rows="3" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-violet-500 focus:border-violet-500" required></textarea>
+                                    <textarea id="motivo-${gato.id}" name="motivo" rows="3" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-violet-500 focus:border-violet-500" required></textarea>
                                 </div>
                                 <div class="flex items-center">
                                     <input type="checkbox" id="gastos-${gato.id}" name="gastos" class="h-4 w-4 text-violet-600 border-gray-300 rounded focus:outline-none focus:ring-0" required>
-                                    <label for="gastos-${gato.id}" class="ml-2 block text-sm text-gray-700">Confirmo estar preparado/a para cubrir los gastos veterinarios y de cuidado que necesita un gato.</label>
+                                    <label for="gastos-${gato.id}" required class="ml-2 block text-sm text-gray-700">Confirmo estar preparado/a para cubrir los gastos veterinarios y de cuidado que necesita un gato.</label>
                                 </div>
                             </div>
                             <div class="mt-6 flex justify-between">
                                 <button type="button" onclick="volverAPaso1(${gato.id})" class="text-gray-600 hover:text-gray-800 font-medium py-2 px-4 rounded-lg hover:scale-105 active:scale-95 transition duration:200 ease-in-out">
                                     &larr; Volver
                                 </button>
-                                <button type="button" onclick="finalizar(${gato.id})" class="bg-violet-500 text-white font-bold py-2 px-5 rounded-lg hover:bg-violet-600 hover:scale-105 active:scale-95 transition duration:200 ease-in-out">
+                                <button type="button" onclick="finalizar(${gato.id})" class="bg-violet-500 text-white font-bold py-2 px-5 rounded-lg hover:bg-violet-600 hover:scale-105 active:scale-95 transition duration-200 ease-in-out">
                                     Enviar Solicitud
                                 </button>
                             </div>
@@ -323,15 +330,15 @@ document.addEventListener('DOMContentLoaded', function() {
                         <div id="form-step-3-${gato.id}" class="hidden">
                             <p class="text-sm text-gray-600 mb-4">Mensaje de ${gato.nombre}</p>
                             <div class="space-y-4">
-                                <label for="finalizada-${gato.id}" class="block mb-1 text-sm font-medium text-gray-700">Espero conocerte pronto!
+                                <p class="block mb-1 text-sm text-justify font-medium text-gray-700 ">Espero conocerte pronto!
                                 <br>Te llegará una notificación de que los humanos que me cuidan les llegó tu solicitud, después ellos se pondrán en contacto contigo 
                                 en las próximas 24 - 48 horas. Muchas michigracias por querer adoptarme! ^-^
-                                </label>
+                                </p>
                                 <img  src="${gato.foto}" alt="${gato.nombre}" 
                                 class="w-full h-full object-cover rounded-lg transition-opacity duration-300 ease-in-out opacity-100">
                             </div>
                             <div class="mt-6 flex justify-between">
-                                <button type="submit" class="bg-violet-500 text-white font-bold py-2 px-5 rounded-lg hover:bg-violet-600 hover:scale-105 active:scale-95 transition duration:200 ease-in-out">
+                                <button type="button" onclick="cerrarFinalizar(${gato.id})" class="bg-violet-500 text-white font-bold py-2 px-5 rounded-lg hover:bg-violet-600 hover:scale-105 active:scale-95 transition duration:200 ease-in-out">
                                     Finalizar
                                 </button>
                             </div>
@@ -340,152 +347,167 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
             </div>
         `;
-        
-                // --- FUNCIONES PARA NAVEGAR ENTRE PASOS DEL FORMULARIO ---
-        function irAPaso2(gatoId) {
-            // Aquí podrías añadir validación del paso 1 antes de continuar
-            const nombreInput = document.getElementById(`nombre-${gatoId}`);
-            // ... valida otros campos ...
-            if (!nombreInput.value) { // Ejemplo simple de validación
-                alert(`${gato.nombre} necesita que completes todos los campos antes de continuar.`);
-                return;
+
+        // FORM NAV HELPERS (expuestos en window para onclicks)
+        function irAPaso2_local(gatoId) {
+        const step1 = $id(`form-step-1-${gatoId}`);
+            if (!step1) return;
+            const campos = step1.querySelectorAll('input, select, textarea');
+            for (const campo of campos) {
+                if (!campo.checkValidity()) {
+                    campo.reportValidity(); 
+                    return;
+                }
             }
-
-            document.getElementById(`form-step-1-${gatoId}`).classList.add('hidden');
-            document.getElementById(`form-step-2-${gatoId}`).classList.remove('hidden');
+            step1.classList.add('hidden');
+            $id(`form-step-2-${gatoId}`).classList.remove('hidden');
         }
-        function finalizar(gatoId) {
-            // Aquí podrías añadir validación del paso 1 antes de continuar
-            const nombreInput = document.getElementById(`nombre-${gatoId}`);
-
-            document.getElementById(`form-step-2-${gatoId}`).classList.add('hidden');
-            document.getElementById(`form-step-3-${gatoId}`).classList.remove('hidden');
-        }        
-        
-
-        function volverAPaso1(gatoId) {
-            document.getElementById(`form-step-2-${gatoId}`).classList.add('hidden');
-            document.getElementById(`form-step-1-${gatoId}`).classList.remove('hidden');
-        }
-
-        // --- MANEJO DEL ENVÍO DEL FORMULARIO ---
-        document.addEventListener('submit', function(event) {
-            // Prevenir el envío por defecto si el formulario es uno de adopción
-            if (event.target.id.startsWith('form-adopcion-')) {
-                event.preventDefault(); // Detiene el envío normal
-                const gatoId = event.target.id.split('-')[2]; // Extrae el ID del gato del ID del form
-
-                // Aquí es donde procesarías los datos del formulario
-                // 1. Recolecta los datos:
-                const formData = new FormData(event.target);
-                const data = Object.fromEntries(formData.entries());
-                console.log('Datos del formulario:', data); // Muestra los datos en la consola
-
-                // 2. (FUTURO) Envía los datos a un servidor o servicio:
-                //    Ejemplo: usando fetch() para enviar a una API o a un servicio como Formspree/Netlify Forms
-                //    fetch('/api/solicitud-adopcion', { method: 'POST', body: JSON.stringify(data), ... })
-                //    .then(...)
-
-                // 3. Muestra un mensaje de éxito y cierra el modal
-                alert(`¡Gracias por tu solicitud para adoptar! Nos pondremos en contacto contigo pronto.`);
-                cerrarFormularioAdopcion(gatoId);
-
-                // Opcional: Podrías limpiar el formulario si es necesario
-                event.target.reset();
-                volverAPaso1(gatoId); // Volver al paso 1 para la próxima vez
+        function finalizar_local(gatoId) {
+            const step1 = $id(`form-step-2-${gatoId}`);
+            if (!step1) return;
+            const campos = step1.querySelectorAll('input, select, textarea');
+            for (const campo of campos) {
+                if (!campo.checkValidity()) {
+                    campo.reportValidity(); 
+                    return;
+                }
             }
-        });
+            $id(`form-step-2-${gatoId}`).classList.add('hidden');
+            $id(`form-step-3-${gatoId}`).classList.remove('hidden');
+        }
+        function volverAPaso1_local(gatoId) {
+            $id(`form-step-2-${gatoId}`).classList.add('hidden');
+            $id(`form-step-1-${gatoId}`).classList.remove('hidden');
+        }
+        function cerrarFinalizar_local(gatoId) {
+            $id(`form-step-3-${gatoId}`).classList.add('hidden');
+            const f = $id(`form-adopcion-${gatoId}`);
+            if (f) f.reset();
+            $id(`form-step-1-${gatoId}`).classList.remove('hidden');
+            cerrarFormularioAdopcion(gatoId);
+        }
 
-        // Asegúrate de que estas funciones estén disponibles globalmente si las llamas con onclick
-        window.finalizar = finalizar;
-        window.irAPaso2 = irAPaso2;
-        window.volverAPaso1 = volverAPaso1;
-        // Las de abrir/cerrar modal ya las tenías globales
+        // exportar para onclick en HTML
+        window.irAPaso2 = irAPaso2_local;
+        window.finalizar = finalizar_local;
+        window.volverAPaso1 = volverAPaso1_local;
+        window.cerrarFinalizar = cerrarFinalizar_local;
 
-        // --- Galería interactiva con transición ---
-        const mainImage = document.getElementById("mainImage");
+        // MANEJO DEL ENVÍO DEL FORMULARIO
+        if (!window.__adopcion_submit_installed) {
+            document.addEventListener('submit', function (event) {
+                if (event.target && event.target.id && event.target.id.startsWith('form-adopcion-')) {
+                    event.preventDefault();
+                    const gatoId = event.target.id.split('-')[2];
+                    const formData = new FormData(event.target);
+                    const data = Object.fromEntries(formData.entries());
+                    console.log('Datos del formulario:', data);
+                    alert(`¡Gracias por tu solicitud para adoptar! Nos pondremos en contacto contigo pronto.`);
+                    cerrarFormularioAdopcion(gatoId);
+                    event.target.reset();
+                    // volver al paso 1 por si vuelve a abrirse
+                    const step1 = $id(`form-step-1-${gatoId}`);
+                    const step2 = $id(`form-step-2-${gatoId}`);
+                    const step3 = $id(`form-step-3-${gatoId}`);
+                    if (step1) step1.classList.remove('hidden');
+                    if (step2) step2.classList.add('hidden');
+                    if (step3) step3.classList.add('hidden');
+                }
+            });
+            window.__adopcion_submit_installed = true;
+        }
+
+        // GALERÍA 
+        const mainImage = $id("mainImage");
         const thumbnails = perfilDetalleContenedor.querySelectorAll("[data-index]");
-        const prevBtn = document.getElementById("prevBtn");
-        const nextBtn = document.getElementById("nextBtn");
+        const prevBtn = $id("prevBtn");
+        const nextBtn = $id("nextBtn");
         const fotos = gato.fotos?.length ? gato.fotos : [gato.foto];
         let currentIndex = 0;
 
-        // Cambiar imagen con transición suave (fade)
         function cambiarImagen(nuevaSrc) {
-        mainImage.classList.add("opacity-0"); // se desvanece
-        setTimeout(() => {
-            mainImage.src = nuevaSrc;
-            mainImage.onload = () => mainImage.classList.remove("opacity-0"); // reaparece
-        }, 150); // tiempo del fade (coincide con Tailwind: duration-300)
+            if (!mainImage) return;
+            mainImage.classList.add("opacity-0");
+            setTimeout(() => {
+                mainImage.src = nuevaSrc;
+                mainImage.onload = () => mainImage.classList.remove("opacity-0");
+            }, 150);
         }
 
-        // Miniaturas clicables
         thumbnails.forEach((thumb, i) => {
-        thumb.addEventListener("click", () => {
-            currentIndex = i;
-            cambiarImagen(fotos[i]);
-            thumbnails.forEach(t => t.classList.remove("border-violet-500"));
-            thumb.classList.add("border-violet-500");
-        });
+            thumb.addEventListener("click", () => {
+                currentIndex = i;
+                cambiarImagen(fotos[i]);
+                thumbnails.forEach(t => t.classList.remove("border-violet-500"));
+                thumb.classList.add("border-violet-500");
+            });
         });
 
-        // Flechas prev/next
         if (prevBtn && nextBtn && fotos.length > 1) {
-        prevBtn.addEventListener("click", () => {
-            currentIndex = (currentIndex - 1 + fotos.length) % fotos.length;
-            cambiarImagen(fotos[currentIndex]);
-            thumbnails.forEach((t, i) => {
-            t.classList.toggle("border-violet-500", i === currentIndex);
+            prevBtn.addEventListener("click", () => {
+                currentIndex = (currentIndex - 1 + fotos.length) % fotos.length;
+                cambiarImagen(fotos[currentIndex]);
+                thumbnails.forEach((t, i) => {
+                    t.classList.toggle("border-violet-500", i === currentIndex);
+                });
             });
-        });
 
-        nextBtn.addEventListener("click", () => {
-            currentIndex = (currentIndex + 1) % fotos.length;
-            cambiarImagen(fotos[currentIndex]);
-            thumbnails.forEach((t, i) => {
-            t.classList.toggle("border-violet-500", i === currentIndex);
+            nextBtn.addEventListener("click", () => {
+                currentIndex = (currentIndex + 1) % fotos.length;
+                cambiarImagen(fotos[currentIndex]);
+                thumbnails.forEach((t, i) => {
+                    t.classList.toggle("border-violet-500", i === currentIndex);
+                });
             });
-        });
         }
-
 
         perfilDetalleContenedor.classList.remove('hidden');
-        document.getElementById('volver-catalogo').addEventListener('click', mostrarCatalogo);
+        const volverBtn = $id('volver-catalogo');
+        if (volverBtn) volverBtn.addEventListener('click', mostrarCatalogo);
         perfilDetalleContenedor.scrollIntoView({ behavior: 'smooth' });
     }
 
-
-
-
-    // --- VOLVER AL CATÁLOGO ---
+    // VOLVER AL CATÁLOGO 
     function mostrarCatalogo() {
         perfilDetalleContenedor.classList.add('hidden');
         perfilDetalleContenedor.innerHTML = '';
         seccionCatalogo?.classList.remove('hidden');
         paginationControls.classList.remove('hidden');
-        setTimeout(() => { AOS.refreshHard(); }, 50);
+        setTimeout(() => { if (window.AOS && AOS.refreshHard) AOS.refreshHard(); }, 50);
     }
 
-    // --- MODAL ADOPCIÓN ---
+    // MODAL
     function abrirFormularioAdopcion(gatoId) {
-        const modal = document.getElementById(`modal-adopcion-${gatoId}`);
+        const modal = $id(`modal-adopcion-${gatoId}`);
         if (modal) modal.classList.remove('hidden');
     }
     function cerrarFormularioAdopcion(gatoId) {
-        const modal = document.getElementById(`modal-adopcion-${gatoId}`);
-        if (modal) modal.classList.add('hidden');
+        const modal = $id(`modal-adopcion-${gatoId}`);
+        if (modal) {
+            modal.classList.add('hidden');
+            const s1 = $id(`form-step-1-${gatoId}`);
+            const s2 = $id(`form-step-2-${gatoId}`);
+            const s3 = $id(`form-step-3-${gatoId}`);
+            if (s1) s1.classList.remove('hidden');
+            if (s2) s2.classList.add('hidden');
+            if (s3) s3.classList.add('hidden');
+            const f = $id(`form-adopcion-${gatoId}`);
+            if (f) f.reset();
+        }
     }
 
-    // --- DROPDOWN ORDEN ---
-    sortDropdown.addEventListener('click', function(event) {
+    // Exponer para onclick en HTML
+    window.abrirFormularioAdopcion = abrirFormularioAdopcion;
+    window.cerrarFormularioAdopcion = cerrarFormularioAdopcion;
+
+    // DROPDOWN ORDEN 
+    sortDropdown.addEventListener('click', function (event) {
         if (event.target.tagName === 'A' && event.target.dataset.sort) {
             event.preventDefault();
             sortGatos(event.target.dataset.sort);
         }
     });
 
-    // --- INICIALIZAR ---
+    // INICIALIZAR
     sortGatos(currentSort);
-    window.abrirFormularioAdopcion = abrirFormularioAdopcion;
-    window.cerrarFormularioAdopcion = cerrarFormularioAdopcion;
 });
