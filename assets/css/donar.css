@@ -1,0 +1,23 @@
+body {
+            font-family: 'Quicksand', sans-serif;
+        }
+        
+        /* Animaciones suaves */
+        .hero-panel {
+            transition: all 0.5s ease-in-out;
+        }
+        
+        /* Ocultar scrollbar en la lista de michis pero permitir scroll */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+
+        .cat-card.selected {
+            border-color: #8B5CF6; /* Orange-500 */
+            background-color: #EDE9FE; /* Orange-100 */
+            transform: scale(1.05);
+        }

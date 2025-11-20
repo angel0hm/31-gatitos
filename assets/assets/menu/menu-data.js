@@ -4,6 +4,18 @@ const menuData = [
   {
     col: 1,
     title: "Michi comida",
+  },
+  {
+    col: 2,
+    title: "Michi bebidas",
+  },
+  {
+    col: 3,
+    title: "Michi postres",
+  },
+  {
+    col: 1,
+    title: null,
     subtitle: "Hot miaus",
     description: "Hot dogs hechos por y para l@s Karen",
     image: "assets/assets/menu/hotmiau.png",
@@ -101,7 +113,7 @@ const menuData = [
 
   {
     col: 2,
-    title: "Michi bebidas",
+    title: null,
     subtitle: "Bebidas calientes",
     description: "Nuestro café es orgánico y de comercio justo",
     image: "assets/assets/menu/cafe.png",
@@ -140,7 +152,7 @@ const menuData = [
   },
   {
     col: 3,
-    title: "Michi postres",
+    title: null,
     subtitle: "Postres con helado",
     description: "Para ronronear",
     image: "assets/assets/menu/postreCH.png",
